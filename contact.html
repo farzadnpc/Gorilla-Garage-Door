@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Gorilla Garage Door</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .page-hero {
+    min-height: 44vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 120px 60px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(255,208,0,0.07) 0%, transparent 60%);
+  }
+  .page-hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+  .page-hero-content { position: relative; z-index: 2; }
+  .page-breadcrumb { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; }
+  .page-breadcrumb a { color: var(--yellow); text-decoration: none; }
+  .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(60px, 9vw, 120px); line-height: 0.9; }
+  .page-title span { color: var(--yellow); }
+  .page-hero-bg-text { position: absolute; right: 60px; bottom: -20px; font-family: 'Bebas Neue', sans-serif; font-size: clamp(100px, 18vw, 260px); color: rgba(255,255,255,0.025); line-height: 1; user-select: none; letter-spacing: -4px; }
+
+  /* CONTACT CARDS */
+  .contact-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--yellow);
+  }
+
+  .contact-card {
+    background: var(--charcoal);
+    padding: 48px 40px;
+    text-align: center;
+    transition: background 0.3s;
+    text-decoration: none;
+    display: block;
+  }
+
+  .contact-card:hover { background: #1f1f1f; }
+
+  .contact-card-icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .contact-card-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 8px;
+  }
+
+  .contact-card-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: var(--white);
+    line-height: 1.1;
+  }
+
+  .contact-card-note {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  /* CONTACT LAYOUT */
+  .contact-main {
+    padding: 100px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-info {}
+
+  .contact-info h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 4vw, 56px);
+    line-height: 0.95;
+    margin-bottom: 20px;
+  }
+
+  .contact-info h2 span { color: var(--yellow); }
+
+  .contact-info p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--gray);
+    margin-bottom: 36px;
+  }
+
+  .contact-detail-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 40px;
+  }
+
+  .contact-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .contact-detail-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(255,208,0,0.1);
+    border: 1px solid rgba(255,208,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .contact-detail-text {}
+
+  .contact-detail-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 4px;
+  }
+
+  .contact-detail-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .contact-detail-value a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-detail-value a:hover { color: var(--yellow); }
+
+  .contact-detail-sub {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 2px;
+  }
+
+  /* Hours */
+  .hours-box {
+    background: var(--charcoal);
+    border: 1px solid #222;
+    border-left: 4px solid var(--yellow);
+    padding: 24px 28px;
+  }
+
+  .hours-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    color: var(--white);
+  }
+
+  .hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 14px;
+  }
+
+  .hours-row:last-child { border-bottom: none; }
+  .hours-day { color: var(--light-gray); font-weight: 500; }
+  .hours-time { color: var(--yellow); font-weight: 700; }
+  .hours-time.emergency { color: #ff6b35; }
+
+  /* FORM SIDE */
+  .contact-form-wrap {
+    background: var(--charcoal);
+    border: 1px solid #2a2a2a;
+    border-top: 4px solid var(--yellow);
+    padding: 48px 40px;
+  }
+
+  .contact-form-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  .contact-form-subtitle {
+    font-size: 14px;
+    color: var(--gray);
+    margin-bottom: 32px;
+  }
+
+  /* Map placeholder */
+  .map-section {
+    background: var(--charcoal);
+    border-top: 1px solid #222;
+    padding: 80px 60px;
+  }
+
+  .map-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .map-placeholder {
+    background: var(--steel);
+    border: 1px solid #333;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .map-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .map-pin { font-size: 56px; position: relative; z-index: 1; }
+
+  .map-placeholder p {
+    font-size: 13px;
+    color: var(--gray);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 1px;
+  }
+
+  .map-placeholder a {
+    background: var(--yellow);
+    color: var(--black);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    text-decoration: none;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    position: relative;
+    z-index: 1;
+    transition: background 0.2s;
+  }
+
+  .map-placeholder a:hover { background: var(--yellow-dark); }
+
+  .map-info h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    line-height: 0.95;
+    margin-bottom: 16px;
+  }
+
+  .map-info h3 span { color: var(--yellow); }
+
+  .map-info p { font-size: 15px; color: var(--gray); line-height: 1.7; margin-bottom: 24px; }
+
+  .service-area-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .area-tag {
+    background: rgba(255,208,0,0.08);
+    border: 1px solid rgba(255,208,0,0.2);
+    color: var(--light-gray);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    transition: all 0.2s;
+  }
+
+  .area-tag:hover {
+    background: rgba(255,208,0,0.15);
+    color: var(--yellow);
+  }
+
+  @media (max-width: 768px) {
+    .page-hero { padding: 100px 24px 50px; }
+    .page-hero-bg-text { display: none; }
+    .contact-cards { grid-template-columns: 1fr; gap: 2px; }
+    .contact-main { grid-template-columns: 1fr; padding: 60px 24px; gap: 48px; }
+    .contact-form-wrap { padding: 28px 20px; }
+    .map-section { padding: 60px 24px; }
+    .map-inner { grid-template-columns: 1fr; gap: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <svg class="logo-icon" viewBox="0 0 44 44" fill="none">
+      <rect width="44" height="44" fill="#FFD000" rx="2"/>
+      <text x="22" y="32" font-size="26" text-anchor="middle" font-family="serif">🦍</text>
+    </svg>
+    <div class="logo-text"><span>GORILLA</span> GARAGE DOOR</div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li class="has-dropdown">
+      <a href="services.html" class="dropdown-toggle">Services <span class="chevron">▾</span></a>
+      <ul class="dropdown">
+        <li><a href="garage-door-installation.html">Garage Door Installation</a></li>
+        <li><a href="garage-door-repairs.html">Garage Door Repairs</a></li>
+        <li><a href="residential-maintenance.html">Residential Garage Door Maintenance</a></li>
+        <li><a href="panel-door-repairs.html">Garage Panel Door Repairs</a></li>
+        <li><a href="roller-door-repairs.html">Garage Roller Door Repairs</a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown">
+      <a href="#" class="dropdown-toggle">Area <span class="chevron">▾</span></a>
+      <ul class="dropdown dropdown-wide">
+        <li><a href="#">Melbourne CBD</a></li><li><a href="#">Southbank</a></li>
+        <li><a href="#">St Kilda</a></li><li><a href="#">Richmond</a></li>
+        <li><a href="#">Fitzroy</a></li><li><a href="#">Carlton</a></li>
+        <li><a href="#">Collingwood</a></li><li><a href="#">Brunswick</a></li>
+        <li><a href="#">Northcote</a></li><li><a href="#">Preston</a></li>
+        <li><a href="#">Essendon</a></li><li><a href="#">Moonee Ponds</a></li>
+        <li><a href="#">Footscray</a></li><li><a href="#">Sunshine</a></li>
+        <li><a href="#">Werribee</a></li><li><a href="#">Williamstown</a></li>
+        <li><a href="#">Port Melbourne</a></li><li><a href="#">South Yarra</a></li>
+        <li><a href="#">Prahran</a></li><li><a href="#">Toorak</a></li>
+        <li><a href="#">Malvern</a></li><li><a href="#">Glen Waverley</a></li>
+        <li><a href="#">Box Hill</a></li><li><a href="#">Doncaster</a></li>
+        <li><a href="#">Ringwood</a></li><li><a href="#">Croydon</a></li>
+        <li><a href="#">Dandenong</a></li><li><a href="#">Frankston</a></li>
+        <li><a href="#">Springvale</a></li><li><a href="#">Moorabbin</a></li>
+      </ul>
+    </li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="#quote" class="nav-cta">Free Quote</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
+<!-- STICKY PHONE BAR -->
+<div class="sticky-phone-bar">
+  <a href="tel:0426955751" class="sticky-phone-call">
+    <span class="sticky-phone-icon">📞</span>
+    <span class="sticky-phone-text">
+      <span class="sticky-label">CALL FOR INSTANT QUOTE</span>
+      <span class="sticky-num">0426 955 751</span>
+    </span>
+  </a>
+  <a href="mailto:gorillagaragedoor3@gmail.com" class="sticky-phone-email">✉️ gorillagaragedoor3@gmail.com</a>
+  <a href="#quote" class="sticky-phone-cta">GET FREE QUOTE →</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-bg-text">CONTACT</div>
+  <div class="page-hero-content">
+    <div class="page-breadcrumb"><a href="index.html">Home</a> / Contact</div>
+    <h1 class="page-title">GET IN<br><span>TOUCH</span></h1>
+  </div>
+</section>
+
+<!-- CONTACT CARDS -->
+<div class="contact-cards">
+  <a href="tel:0426955751" class="contact-card">
+    <span class="contact-card-icon">📞</span>
+    <div class="contact-card-label">Call Us Now</div>
+    <div class="contact-card-value">0426 955 751</div>
+    <div class="contact-card-note">Available 24/7 for emergencies</div>
+  </a>
+  <a href="mailto:gorillagaragedoor3@gmail.com" class="contact-card">
+    <span class="contact-card-icon">✉️</span>
+    <div class="contact-card-label">Email Us</div>
+    <div class="contact-card-value" style="font-size:18px;">gorillagaragedoor3@gmail.com</div>
+    <div class="contact-card-note">We reply within the hour</div>
+  </a>
+  <a href="#quote" class="contact-card">
+    <span class="contact-card-icon">📋</span>
+    <div class="contact-card-label">Free Quote</div>
+    <div class="contact-card-value">Fill In Our Form</div>
+    <div class="contact-card-note">Get a quote in minutes</div>
+  </a>
+</div>
+
+<!-- MAIN CONTACT SECTION -->
+<section class="contact-main">
+  <!-- LEFT: Info -->
+  <div class="contact-info">
+    <div class="section-eyebrow">Contact Information</div>
+    <h2>WE'RE READY<br>WHEN <span>YOU ARE</span></h2>
+    <p>Whether it's a broken spring at midnight or a new door installation you've been planning for months — Gorilla Garage Door is ready to help. Call, email, or fill in the form.</p>
+
+    <ul class="contact-detail-list">
+      <li class="contact-detail-item">
+        <div class="contact-detail-icon">📞</div>
+        <div class="contact-detail-text">
+          <div class="contact-detail-label">Phone</div>
+          <div class="contact-detail-value"><a href="tel:0426955751">0426 955 751</a></div>
+          <div class="contact-detail-sub">Call or text anytime</div>
+        </div>
+      </li>
+      <li class="contact-detail-item">
+        <div class="contact-detail-icon">✉️</div>
+        <div class="contact-detail-text">
+          <div class="contact-detail-label">Email</div>
+          <div class="contact-detail-value"><a href="mailto:gorillagaragedoor3@gmail.com">gorillagaragedoor3@gmail.com</a></div>
+          <div class="contact-detail-sub">We respond within the hour</div>
+        </div>
+      </li>
+      <li class="contact-detail-item">
+        <div class="contact-detail-icon">📍</div>
+        <div class="contact-detail-text">
+          <div class="contact-detail-label">Service Area</div>
+          <div class="contact-detail-value">Greater Melbourne, VIC</div>
+          <div class="contact-detail-sub">All suburbs covered</div>
+        </div>
+      </li>
+      <li class="contact-detail-item">
+        <div class="contact-detail-icon">🚨</div>
+        <div class="contact-detail-text">
+          <div class="contact-detail-label">Emergency Line</div>
+          <div class="contact-detail-value"><a href="tel:0426955751">0426 955 751</a></div>
+          <div class="contact-detail-sub">24/7 emergency callouts</div>
+        </div>
+      </li>
+    </ul>
+
+    <div class="hours-box">
+      <div class="hours-title">⏰ Business Hours</div>
+      <div class="hours-row"><span class="hours-day">Monday – Friday</span><span class="hours-time">7:00am – 6:00pm</span></div>
+      <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">8:00am – 4:00pm</span></div>
+      <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">By Appointment</span></div>
+      <div class="hours-row"><span class="hours-day">Emergency</span><span class="hours-time emergency">24/7 Available</span></div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Form -->
+  <div class="contact-form-wrap" id="quote">
+    <div class="contact-form-title">FREE QUOTE REQUEST</div>
+    <div class="contact-form-subtitle">Fill in the form and we'll get back to you within the hour.</div>
+
+    <form id="quoteForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name *</label>
+          <input type="text" name="name" placeholder="John Smith" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" name="phone" placeholder="04XX XXX XXX" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="john@example.com">
+      </div>
+      <div class="form-group">
+        <label>Service Required *</label>
+        <select name="service" required>
+          <option value="" disabled selected>Select a service...</option>
+          <option>Garage Door Installation</option>
+          <option>Garage Door Repairs</option>
+          <option>Residential Garage Door Maintenance</option>
+          <option>Garage Panel Door Repairs</option>
+          <option>Garage Roller Door Repairs</option>
+          <option>Emergency Service</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Your Suburb *</label>
+        <input type="text" name="suburb" placeholder="e.g. Richmond, South Yarra..." required>
+      </div>
+      <div class="form-group">
+        <label>Tell Us More</label>
+        <textarea name="message" rows="4" placeholder="Describe your garage door issue or what you need..."></textarea>
+      </div>
+      <button type="submit" class="btn-submit" id="submitBtn">Send My Free Quote Request →</button>
+      <p class="form-note">* Required fields. We respect your privacy and will never share your details.</p>
+    </form>
+
+    <div class="form-success" id="formSuccess" style="display:none;">
+      <div class="success-icon">✓</div>
+      <h3>Quote Request Received!</h3>
+      <p>Thanks! We'll be in touch within the hour. For urgent jobs call <a href="tel:0426955751">0426 955 751</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MAP / SERVICE AREA -->
+<section class="map-section">
+  <div class="map-inner">
+    <div class="map-placeholder">
+      <div class="map-pin">📍</div>
+      <p>SERVING ALL OF<br>GREATER MELBOURNE</p>
+      <a href="https://maps.google.com/?q=Melbourne,VIC" target="_blank">Open in Google Maps →</a>
+    </div>
+    <div class="map-info">
+      <div class="section-eyebrow">Service Area</div>
+      <h3>WE COME TO <span>YOU</span></h3>
+      <p>No need to travel — our fully equipped vans come to your home or business across all of Greater Melbourne. From the CBD to the outer suburbs, we've got you covered.</p>
+      <div class="service-area-tags">
+        <span class="area-tag">Melbourne CBD</span>
+        <span class="area-tag">St Kilda</span>
+        <span class="area-tag">Richmond</span>
+        <span class="area-tag">South Yarra</span>
+        <span class="area-tag">Fitzroy</span>
+        <span class="area-tag">Brunswick</span>
+        <span class="area-tag">Essendon</span>
+        <span class="area-tag">Footscray</span>
+        <span class="area-tag">Box Hill</span>
+        <span class="area-tag">Doncaster</span>
+        <span class="area-tag">Dandenong</span>
+        <span class="area-tag">Frankston</span>
+        <span class="area-tag">Werribee</span>
+        <span class="area-tag">Ringwood</span>
+        <span class="area-tag">Moorabbin</span>
+        <span class="area-tag">+ All Melbourne Suburbs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">🦍 <span>GORILLA</span> GARAGE DOOR</div>
+      <p class="footer-tagline">Built tough. Priced fair. Done right. Melbourne's trusted garage door experts.</p>
+      <a href="tel:0426955751" class="footer-contact-item">📞 0426 955 751</a>
+      <a href="mailto:gorillagaragedoor3@gmail.com" class="footer-contact-item">✉️ gorillagaragedoor3@gmail.com</a>
+      <span class="footer-contact-item">📍 Serving Greater Melbourne</span>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul class="footer-links">
+        <li><a href="garage-door-installation.html">Garage Door Installation</a></li>
+        <li><a href="garage-door-repairs.html">Garage Door Repairs</a></li>
+        <li><a href="residential-maintenance.html">Residential Maintenance</a></li>
+        <li><a href="panel-door-repairs.html">Panel Door Repairs</a></li>
+        <li><a href="roller-door-repairs.html">Roller Door Repairs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Areas We Serve</h4>
+      <ul class="footer-links">
+        <li><a href="#">Melbourne CBD</a></li>
+        <li><a href="#">Richmond</a></li>
+        <li><a href="#">South Yarra</a></li>
+        <li><a href="#">Dandenong</a></li>
+        <li><a href="#">Frankston</a></li>
+        <li><a href="#">Essendon</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul class="footer-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#quote">Free Quote</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Gorilla Garage Door. All rights reserved. Licensed & Insured. Serving Greater Melbourne.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

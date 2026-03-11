@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Gorilla Garage Door</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* PAGE HERO */
+  .page-hero {
+    min-height: 52vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 120px 60px 60px;
+    position: relative;
+    overflow: hidden;
+    background: var(--black);
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 80% 50%, rgba(255,208,0,0.07) 0%, transparent 60%),
+      linear-gradient(to bottom, rgba(255,208,0,0.03), transparent);
+  }
+  .page-hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+  .page-hero-content { position: relative; z-index: 2; }
+  .page-breadcrumb {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 16px;
+  }
+  .page-breadcrumb a { color: var(--yellow); text-decoration: none; }
+  .page-breadcrumb a:hover { text-decoration: underline; }
+  .page-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(60px, 9vw, 120px);
+    line-height: 0.9;
+    letter-spacing: 1px;
+  }
+  .page-title span { color: var(--yellow); }
+  .page-hero-bg-text {
+    position: absolute;
+    right: 60px;
+    bottom: -20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(100px, 18vw, 260px);
+    color: rgba(255,255,255,0.025);
+    line-height: 1;
+    user-select: none;
+    letter-spacing: -4px;
+  }
+
+  /* ABOUT CONTENT */
+  .about-intro {
+    padding: 100px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    border-bottom: 1px solid #222;
+  }
+  .about-intro-left {}
+  .about-intro-left h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 0.95;
+    margin-bottom: 28px;
+  }
+  .about-intro-left h2 span { color: var(--yellow); }
+  .about-intro-left p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--light-gray);
+    margin-bottom: 20px;
+  }
+  .about-intro-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .about-stat-box {
+    background: var(--charcoal);
+    border: 1px solid #222;
+    padding: 32px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .about-stat-box:hover { border-color: rgba(255,208,0,0.4); }
+  .about-stat-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--yellow);
+  }
+  .about-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    color: var(--yellow);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .about-stat-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  /* VALUES */
+  .about-values {
+    padding: 100px 60px;
+    background: var(--charcoal);
+    border-bottom: 1px solid #222;
+  }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .value-card {
+    padding: 40px 32px;
+    border: 1px solid #2a2a2a;
+    background: var(--black);
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .value-card:hover { border-color: rgba(255,208,0,0.3); transform: translateY(-4px); }
+  .value-icon { font-size: 44px; margin-bottom: 20px; display: block; }
+  .value-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    color: var(--white);
+  }
+  .value-desc { font-size: 14px; line-height: 1.7; color: var(--gray); }
+
+  /* STORY */
+  .about-story {
+    padding: 100px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    border-bottom: 1px solid #222;
+  }
+  .story-visual {
+    position: relative;
+    background: var(--charcoal);
+    border: 1px solid #222;
+    padding: 60px 40px;
+    text-align: center;
+  }
+  .story-gorilla {
+    font-size: 160px;
+    display: block;
+    margin: 0 auto;
+    opacity: 0.6;
+  }
+  .story-badge {
+    position: absolute;
+    top: -16px;
+    right: 24px;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    padding: 8px 20px;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  }
+  .story-text h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 0.95;
+    margin-bottom: 24px;
+  }
+  .story-text h2 span { color: var(--yellow); }
+  .story-text p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--light-gray);
+    margin-bottom: 18px;
+  }
+
+  /* TEAM */
+  .about-team {
+    padding: 100px 60px;
+    background: var(--charcoal);
+    border-bottom: 1px solid #222;
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .team-card {
+    background: var(--black);
+    border: 1px solid #222;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .team-card:hover { border-color: rgba(255,208,0,0.3); transform: translateY(-4px); }
+  .team-avatar {
+    height: 180px;
+    background: var(--steel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .team-avatar::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--yellow);
+  }
+  .team-info { padding: 24px; }
+  .team-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .team-role {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 12px;
+  }
+  .team-bio { font-size: 13px; line-height: 1.6; color: var(--gray); }
+
+  /* CTA */
+  .about-cta {
+    padding: 100px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-cta::before {
+    content: '🦍';
+    position: absolute;
+    font-size: 400px;
+    opacity: 0.03;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+  }
+  .about-cta h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 7vw, 90px);
+    line-height: 0.95;
+    margin-bottom: 20px;
+  }
+  .about-cta h2 span { color: var(--yellow); }
+  .about-cta p { font-size: 17px; color: var(--gray); margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .page-hero { padding: 100px 24px 50px; min-height: auto; }
+    .page-hero-bg-text { display: none; }
+    .about-intro { grid-template-columns: 1fr; padding: 70px 24px; gap: 48px; }
+    .about-values { padding: 70px 24px; }
+    .values-grid { grid-template-columns: 1fr; }
+    .about-story { grid-template-columns: 1fr; padding: 70px 24px; gap: 48px; }
+    .story-visual { display: none; }
+    .about-team { padding: 70px 24px; }
+    .team-grid { grid-template-columns: 1fr; }
+    .about-cta { padding: 70px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <svg class="logo-icon" viewBox="0 0 44 44" fill="none">
+      <rect width="44" height="44" fill="#FFD000" rx="2"/>
+      <text x="22" y="32" font-size="26" text-anchor="middle" font-family="serif">🦍</text>
+    </svg>
+    <div class="logo-text"><span>GORILLA</span> GARAGE DOOR</div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li class="has-dropdown">
+      <a href="services.html" class="dropdown-toggle">Services <span class="chevron">▾</span></a>
+      <ul class="dropdown">
+        <li><a href="garage-door-installation.html">Garage Door Installation</a></li>
+        <li><a href="garage-door-repairs.html">Garage Door Repairs</a></li>
+        <li><a href="residential-maintenance.html">Residential Garage Door Maintenance</a></li>
+        <li><a href="panel-door-repairs.html">Garage Panel Door Repairs</a></li>
+        <li><a href="roller-door-repairs.html">Garage Roller Door Repairs</a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown">
+      <a href="#" class="dropdown-toggle">Area <span class="chevron">▾</span></a>
+      <ul class="dropdown dropdown-wide">
+        <li><a href="#">Melbourne CBD</a></li><li><a href="#">Southbank</a></li>
+        <li><a href="#">St Kilda</a></li><li><a href="#">Richmond</a></li>
+        <li><a href="#">Fitzroy</a></li><li><a href="#">Carlton</a></li>
+        <li><a href="#">Collingwood</a></li><li><a href="#">Brunswick</a></li>
+        <li><a href="#">Northcote</a></li><li><a href="#">Preston</a></li>
+        <li><a href="#">Essendon</a></li><li><a href="#">Moonee Ponds</a></li>
+        <li><a href="#">Footscray</a></li><li><a href="#">Sunshine</a></li>
+        <li><a href="#">Werribee</a></li><li><a href="#">Williamstown</a></li>
+        <li><a href="#">Port Melbourne</a></li><li><a href="#">South Yarra</a></li>
+        <li><a href="#">Prahran</a></li><li><a href="#">Toorak</a></li>
+        <li><a href="#">Malvern</a></li><li><a href="#">Glen Waverley</a></li>
+        <li><a href="#">Box Hill</a></li><li><a href="#">Doncaster</a></li>
+        <li><a href="#">Ringwood</a></li><li><a href="#">Croydon</a></li>
+        <li><a href="#">Dandenong</a></li><li><a href="#">Frankston</a></li>
+        <li><a href="#">Springvale</a></li><li><a href="#">Moorabbin</a></li>
+      </ul>
+    </li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html#quote" class="nav-cta">Free Quote</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
+<!-- STICKY PHONE BAR -->
+<div class="sticky-phone-bar">
+  <a href="tel:0426955751" class="sticky-phone-call">
+    <span class="sticky-phone-icon">📞</span>
+    <span class="sticky-phone-text">
+      <span class="sticky-label">CALL FOR INSTANT QUOTE</span>
+      <span class="sticky-num">0426 955 751</span>
+    </span>
+  </a>
+  <a href="mailto:gorillagaragedoor3@gmail.com" class="sticky-phone-email">✉️ gorillagaragedoor3@gmail.com</a>
+  <a href="contact.html#quote" class="sticky-phone-cta">GET FREE QUOTE →</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-bg-text">ABOUT</div>
+  <div class="page-hero-content">
+    <div class="page-breadcrumb"><a href="index.html">Home</a> / About Us</div>
+    <h1 class="page-title">ABOUT<br><span>GORILLA</span><br>GARAGE DOOR</h1>
+  </div>
+</section>
+
+<!-- INTRO + STATS -->
+<section class="about-intro">
+  <div class="about-intro-left">
+    <h2>MELBOURNE'S MOST <span>TRUSTED</span> GARAGE DOOR TEAM</h2>
+    <p>Gorilla Garage Door was built on one simple idea — give Melbourne homeowners and businesses a garage door service they can actually trust. No inflated quotes, no no-shows, no shoddy work. Just honest, quality service every time.</p>
+    <p>We're a local Melbourne business serving every suburb from the CBD to Frankston, from Essendon to Dandenong. When your garage door needs attention, we treat your home like our own.</p>
+    <p>Every job we do is backed by our parts and labour warranty. We show up on time, we give you a real price upfront, and we don't leave until the job is done right.</p>
+  </div>
+  <div class="about-intro-right">
+    <div class="about-stat-box">
+      <div class="about-stat-num">15+</div>
+      <div class="about-stat-label">Years in Business</div>
+    </div>
+    <div class="about-stat-box">
+      <div class="about-stat-num">2,500+</div>
+      <div class="about-stat-label">Doors Installed</div>
+    </div>
+    <div class="about-stat-box">
+      <div class="about-stat-num">30+</div>
+      <div class="about-stat-label">Melbourne Suburbs</div>
+    </div>
+    <div class="about-stat-box">
+      <div class="about-stat-num">100%</div>
+      <div class="about-stat-label">Satisfaction Rate</div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="about-values">
+  <div class="section-header">
+    <div class="section-eyebrow">What We Stand For</div>
+    <h2 class="section-title">THE GORILLA<br>DIFFERENCE</h2>
+  </div>
+  <div class="values-grid">
+    <div class="value-card">
+      <span class="value-icon">💪</span>
+      <h3 class="value-title">Built Tough</h3>
+      <p class="value-desc">We only use quality parts and materials that stand the test of Melbourne's weather and daily use. Every installation is built to last.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-icon">💰</span>
+      <h3 class="value-title">Priced Fair</h3>
+      <p class="value-desc">You'll always know what you're paying before we start. Transparent pricing, no hidden fees, no nasty surprises when the job is done.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-icon">✅</span>
+      <h3 class="value-title">Done Right</h3>
+      <p class="value-desc">We don't cut corners. Every job is completed to the highest standard and backed by our warranty — if something isn't right, we fix it free.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-icon">⚡</span>
+      <h3 class="value-title">Fast Response</h3>
+      <p class="value-desc">Same-day service and 24/7 emergency callouts. When your garage door fails at the worst time, we're there fast.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-icon">🏅</span>
+      <h3 class="value-title">Fully Licensed</h3>
+      <p class="value-desc">All our technicians are licensed, insured, and background-checked. You can trust us in and around your home.</p>
+    </div>
+    <div class="value-card">
+      <span class="value-icon">🤝</span>
+      <h3 class="value-title">Local & Loyal</h3>
+      <p class="value-desc">We're a Melbourne business serving Melbourne people. We care about our reputation in this city and it shows in every job we do.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="about-story">
+  <div class="story-visual">
+    <div class="story-badge">EST. 2010</div>
+    <span class="story-gorilla">🦍</span>
+    <p style="color:var(--gray);font-size:13px;margin-top:16px;letter-spacing:1px;text-transform:uppercase;font-weight:700;">Melbourne's Garage Door Gorillas</p>
+  </div>
+  <div class="story-text">
+    <div class="section-eyebrow">Our Story</div>
+    <h2>FROM ONE VAN<br>TO <span>MELBOURNE'S BEST</span></h2>
+    <p>Gorilla Garage Door started with one van, one technician, and one mission — to give Melbourne homeowners a garage door service they could actually rely on. Word spread fast. Our reputation for showing up on time, doing quality work, and charging fair prices built the business one happy customer at a time.</p>
+    <p>Today we cover all of Greater Melbourne with a full team of licensed technicians, a fleet of fully stocked vans, and the same commitment to quality that started it all. We carry hundreds of parts on every van so most jobs are completed in a single visit.</p>
+    <p>We're proud to be a Melbourne business. This city is our home — and when you call Gorilla Garage Door, you're calling someone who genuinely cares about getting the job done right.</p>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="about-team">
+  <div class="section-header">
+    <div class="section-eyebrow">The Team</div>
+    <h2 class="section-title">THE GORILLAS<br>BEHIND THE WORK</h2>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">👷</div>
+      <div class="team-info">
+        <div class="team-name">Ali</div>
+        <div class="team-role">Founder & Lead Technician</div>
+        <p class="team-bio">15+ years in the garage door industry. Founded Gorilla Garage Door to bring honest, quality service to Melbourne homeowners.</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">🔧</div>
+      <div class="team-info">
+        <div class="team-name">Service Team</div>
+        <div class="team-role">Licensed Technicians</div>
+        <p class="team-bio">Fully licensed, insured, and background-checked technicians covering all of Greater Melbourne. Same-day service specialists.</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">📞</div>
+      <div class="team-info">
+        <div class="team-name">Support Team</div>
+        <div class="team-role">Customer Service</div>
+        <p class="team-bio">Available 7 days a week to answer your questions, book appointments, and dispatch emergency technicians when you need them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="about-cta">
+  <div class="section-eyebrow">Ready to Work Together?</div>
+  <h2>LET'S GET YOUR<br>DOOR <span>FIXED TODAY</span></h2>
+  <p>Call us now for a same-day quote, or fill in our form and we'll get back to you within the hour.</p>
+  <div class="cta-buttons">
+    <a href="tel:0426955751" class="btn-primary">📞 Call 0426 955 751</a>
+    <a href="contact.html#quote" class="btn-outline">Get a Free Quote →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">🦍 <span>GORILLA</span> GARAGE DOOR</div>
+      <p class="footer-tagline">Built tough. Priced fair. Done right. Melbourne's trusted garage door experts.</p>
+      <a href="tel:0426955751" class="footer-contact-item">📞 0426 955 751</a>
+      <a href="mailto:gorillagaragedoor3@gmail.com" class="footer-contact-item">✉️ gorillagaragedoor3@gmail.com</a>
+      <span class="footer-contact-item">📍 Serving Greater Melbourne</span>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul class="footer-links">
+        <li><a href="garage-door-installation.html">Garage Door Installation</a></li>
+        <li><a href="garage-door-repairs.html">Garage Door Repairs</a></li>
+        <li><a href="residential-maintenance.html">Residential Maintenance</a></li>
+        <li><a href="panel-door-repairs.html">Panel Door Repairs</a></li>
+        <li><a href="roller-door-repairs.html">Roller Door Repairs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Areas We Serve</h4>
+      <ul class="footer-links">
+        <li><a href="#">Melbourne CBD</a></li>
+        <li><a href="#">Richmond</a></li>
+        <li><a href="#">South Yarra</a></li>
+        <li><a href="#">Dandenong</a></li>
+        <li><a href="#">Frankston</a></li>
+        <li><a href="#">Essendon</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul class="footer-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html#quote">Free Quote</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Gorilla Garage Door. All rights reserved. Licensed & Insured. Serving Greater Melbourne.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garage Door Service Areas Melbourne | Gorilla Garage Door</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* PAGE HERO */
+  .page-hero {
+    min-height: 55vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 120px 60px 64px;
+    position: relative;
+    overflow: hidden;
+    background: var(--black);
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 75% 50%, rgba(255,208,0,0.07) 0%, transparent 60%);
+  }
+  .page-hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+  .page-hero-bg-text {
+    position: absolute; right: 40px; bottom: -30px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(80px, 16vw, 240px);
+    color: rgba(255,255,255,0.025);
+    line-height: 1; user-select: none; letter-spacing: -4px; pointer-events: none;
+  }
+  .page-hero-content { position: relative; z-index: 2; max-width: 800px; }
+  .page-breadcrumb { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 20px; }
+  .page-breadcrumb a { color: var(--yellow); text-decoration: none; }
+  .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(58px, 9vw, 120px); line-height: 0.88; letter-spacing: 1px; margin-bottom: 16px; }
+  .page-title span { color: var(--yellow); }
+  .page-hero-sub { font-size: 16px; color: var(--light-gray); max-width: 560px; line-height: 1.6; }
+
+  /* INTRO STRIP */
+  .areas-intro {
+    background: var(--yellow);
+    padding: 36px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .areas-intro-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(20px, 3vw, 32px);
+    color: var(--black);
+    letter-spacing: 2px;
+  }
+  .areas-intro-stats { display: flex; gap: 40px; flex-wrap: wrap; }
+  .ai-stat { text-align: center; }
+  .ai-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 40px; color: var(--black); line-height: 1; }
+  .ai-stat-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(0,0,0,0.6); }
+
+  /* MAP VISUAL */
+  .areas-map-section {
+    padding: 80px 60px;
+    border-bottom: 1px solid #222;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .map-placeholder {
+    background: var(--charcoal);
+    border: 1px solid #333;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .map-placeholder::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to right, rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .map-pin { font-size: 64px; position: relative; z-index: 1; animation: float 4s ease-in-out infinite; }
+  .map-placeholder p { font-size: 14px; color: var(--gray); text-align: center; position: relative; z-index: 1; letter-spacing: 1px; line-height: 1.6; }
+  .map-placeholder a {
+    background: var(--yellow); color: var(--black);
+    font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+    padding: 12px 24px; text-decoration: none;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    position: relative; z-index: 1; transition: background 0.2s;
+  }
+  .map-placeholder a:hover { background: var(--yellow-dark); }
+  .map-info {}
+  .map-info h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(38px, 4.5vw, 60px); line-height: 0.95; margin: 16px 0 20px; }
+  .map-info h2 span { color: var(--yellow); }
+  .map-info p { font-size: 15px; line-height: 1.8; color: var(--light-gray); margin-bottom: 20px; }
+  .coverage-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .cov-badge { background: rgba(255,208,0,0.08); border: 1px solid rgba(255,208,0,0.2); color: var(--light-gray); font-size: 12px; font-weight: 600; letter-spacing: 1px; padding: 6px 14px; }
+
+  /* SUBURB REGIONS */
+  .areas-regions { padding: 100px 60px; background: var(--charcoal); border-bottom: 1px solid #222; }
+
+  .region-block { margin-bottom: 64px; }
+  .region-block:last-child { margin-bottom: 0; }
+
+  .region-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .region-title::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
+  .region-title span { color: var(--yellow); }
+
+  .suburb-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+  }
+
+  .suburb-card {
+    background: var(--black);
+    border: 1px solid #1f1f1f;
+    padding: 18px 20px;
+    text-decoration: none;
+    display: block;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .suburb-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 2px;
+    background: var(--yellow);
+    transform: scaleX(0);
+    transition: transform 0.2s;
+    transform-origin: left;
+  }
+
+  .suburb-card:hover { border-color: rgba(255,208,0,0.3); transform: translateY(-2px); }
+  .suburb-card:hover::before { transform: scaleX(1); }
+
+  .suburb-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--white);
+    margin-bottom: 4px;
+    transition: color 0.2s;
+  }
+  .suburb-card:hover .suburb-name { color: var(--yellow); }
+
+  .suburb-sub {
+    font-size: 11px;
+    color: var(--gray);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  .suburb-arrow {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    color: var(--yellow);
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.2s, right 0.2s;
+  }
+  .suburb-card:hover .suburb-arrow { opacity: 1; right: 10px; }
+
+  /* ALL SUBURBS COMING SOON badge */
+  .suburb-card.coming-soon {
+    opacity: 0.55;
+    cursor: default;
+  }
+  .suburb-card.coming-soon:hover { transform: none; border-color: #1f1f1f; }
+  .suburb-card.coming-soon::before { display: none; }
+
+  /* SERVICES IN AREA */
+  .areas-services { padding: 100px 60px; border-bottom: 1px solid #222; }
+  .as-intro { max-width: 680px; margin-bottom: 60px; }
+  .as-intro p { font-size: 15px; line-height: 1.8; color: var(--light-gray); margin-top: 16px; }
+  .as-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .as-card { background: var(--charcoal); border: 1px solid #222; padding: 32px 28px; text-decoration: none; display: block; transition: border-color 0.3s, transform 0.3s; }
+  .as-card:hover { border-color: rgba(255,208,0,0.3); transform: translateY(-4px); }
+  .as-icon { font-size: 36px; margin-bottom: 14px; display: block; }
+  .as-title { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; color: var(--white); margin-bottom: 8px; }
+  .as-desc { font-size: 13px; color: var(--gray); line-height: 1.6; }
+
+  /* CTA */
+  .areas-cta { padding: 100px 60px; text-align: center; background: var(--yellow); position: relative; overflow: hidden; }
+  .areas-cta::before { content: '📍'; position: absolute; font-size: 400px; opacity: 0.05; top: 50%; left: 50%; transform: translate(-50%,-50%); user-select: none; pointer-events: none; }
+  .areas-cta-inner { position: relative; z-index: 1; }
+  .areas-cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(44px, 6vw, 80px); line-height: 0.95; color: var(--black); margin-bottom: 16px; }
+  .areas-cta p { font-size: 16px; color: rgba(0,0,0,0.6); margin-bottom: 36px; font-weight: 500; }
+  .areas-cta .btn-primary { background: var(--black); color: var(--yellow); }
+  .areas-cta .btn-outline { border-color: rgba(0,0,0,0.3); color: var(--black); }
+  .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  @media (max-width: 1100px) {
+    .suburb-grid { grid-template-columns: repeat(3, 1fr); }
+    .as-grid { grid-template-columns: repeat(2, 1fr); }
+    .areas-map-section { grid-template-columns: 1fr; }
+    .map-placeholder { height: 300px; }
+  }
+  @media (max-width: 768px) {
+    .page-hero { padding: 100px 24px 52px; }
+    .page-hero-bg-text { display: none; }
+    .areas-intro { padding: 28px 24px; }
+    .areas-map-section { padding: 60px 24px; gap: 40px; }
+    .areas-regions { padding: 60px 24px; }
+    .suburb-grid { grid-template-columns: repeat(2, 1fr); }
+    .areas-services { padding: 60px 24px; }
+    .as-grid { grid-template-columns: 1fr; }
+    .areas-cta { padding: 60px 24px; }
+  }
+  @media (max-width: 480px) {
+    .suburb-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <svg class="logo-icon" viewBox="0 0 44 44" fill="none">
+      <rect width="44" height="44" fill="#FFD000" rx="2"/>
+      <text x="22" y="32" font-size="26" text-anchor="middle" font-family="serif">🦍</text>
+    </svg>
+    <div class="logo-text"><span>GORILLA</span> GARAGE DOOR</div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li class="has-dropdown">
+      <a href="services.html" class="dropdown-toggle">Services <span class="chevron">▾</span></a>
+      <ul class="dropdown">
+        <li><a href="garage-door-installation.html">Garage Door Installation</a></li>
+        <li><a href="garage-door-repairs.html">Garage Door Repairs</a></li>
+        <li><a href="residential-maintenance.html">Residential Garage Door Maintenance</a></li>
+        <li><a href="panel-door-repairs.html">Garage Panel Door Repairs</a></li>
+        <li><a href="roller-door-repairs.html">Garage Roller Door Repairs</a></li>
+      </ul>
+    </li>
+    <li class="has-dropdown">
+      <a href="areas.html" class="dropdown-toggle">Area <span class="chevron">▾</span></a>
+      <ul class="dropdown dropdown-wide">
+        <li><a href="area-melbourne-cbd.html">Melbourne CBD</a></li><li><a href="#">Southbank</a></li>
+        <li><a href="#">St Kilda</a></li><li><a href="#">Richmond</a></li>
+        <li><a href="#">Fitzroy</a></li><li><a href="#">Carlton</a></li>
+        <li><a href="#">Collingwood</a></li><li><a href="#">Brunswick</a></li>
+        <li><a href="#">Northcote</a></li><li><a href="#">Preston</a></li>
+        <li><a href="#">Essendon</a></li><li><a href="#">Moonee Ponds</a></li>
+        <li><a href="#">Footscray</a></li><li><a href="#">Sunshine</a></li>
+        <li><a href="#">Werribee</a></li><li><a href="#">Williamstown</a></li>
+        <li><a href="#">Port Melbourne</a></li><li><a href="#">South Yarra</a></li>
+        <li><a href="#">Prahran</a></li><li><a href="#">Toorak</a></li>
+        <li><a href="#">Malvern</a></li><li><a href="#">Glen Waverley</a></li>
+        <li><a href="#">Box Hill</a></li><li><a href="#">Doncaster</a></li>
+        <li><a href="#">Ringwood</a></li><li><a href="#">Croydon</a></li>
+        <li><a href="#">Dandenong</a></li><li><a href="#">Frankston</a></li>
+        <li><a href="#">Springvale</a></li><li><a href="#">Moorabbin</a></li>
+      </ul>
+    </li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html#quote" class="nav-cta">Free Quote</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
+<!-- STICKY PHONE BAR -->
+<div class="sticky-phone-bar">
+  <a href="tel:0426955751" class="sticky-phone-call">
+    <span class="sticky-phone-icon">📞</span>
+    <span class="sticky-phone-text">
+      <span class="sticky-label">CALL FOR INSTANT QUOTE</span>
+      <span class="sticky-num">0426 955 751</span>
+    </span>
+  </a>
+  <a href="mailto:gorillagaragedoor3@gmail.com" class="sticky-phone-email">✉️ gorillagaragedoor3@gmail.com</a>
+  <a href="contact.html#quote" class="sticky-phone-cta">GET FREE QUOTE →</a>
+</div>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-bg-text">MELBOURNE</div>
+  <div class="page-hero-content">
+    <div class="page-breadcrumb"><a href="index.html">Home</a> / Areas We Serve</div>
+    <h1 class="page-title">SERVING ALL OF<br><span>GREATER MELBOURNE</span></h1>
+    <p class="page-hero-sub">Garage door installation, repairs and maintenance across every Melbourne suburb — north, south, east and west.</p>
+  </div>
+</section>
+
+<!-- INTRO STRIP -->
+<div class="areas-intro">
+  <div class="areas-intro-text">🦍 GORILLA GARAGE DOOR — MELBOURNE'S LOCAL TEAM</div>
+  <div class="areas-intro-stats">
+    <div class="ai-stat"><div class="ai-stat-num">30+</div><div class="ai-stat-label">Suburbs Covered</div></div>
+    <div class="ai-stat"><div class="ai-stat-num">24/7</div><div class="ai-stat-label">Emergency</div></div>
+    <div class="ai-stat"><div class="ai-stat-num">Same Day</div><div class="ai-stat-label">Service Available</div></div>
+  </div>
+</div>
+
+<!-- MAP + INFO -->
+<section class="areas-map-section">
+  <div class="map-placeholder">
+    <div class="map-pin">📍</div>
+    <p>SERVING ALL OF<br>GREATER MELBOURNE, VIC<br><br>From the CBD to the outer suburbs</p>
+    <a href="https://maps.google.com/?q=Melbourne,VIC" target="_blank">Open in Google Maps →</a>
+  </div>
+  <div class="map-info">
+    <div class="section-eyebrow">Our Coverage</div>
+    <h2>WE COME TO<br><span>YOUR SUBURB</span></h2>
+    <p>No depot visits needed. Our fleet of fully stocked service vans covers all of Greater Melbourne — residential and commercial. From inner-city apartments with roller doors to outer suburban homes with panel doors, we've got you covered.</p>
+    <p>Same-day service available across most suburbs. Emergency callouts available 24/7 across all areas.</p>
+    <div class="coverage-badges">
+      <span class="cov-badge">Inner Melbourne</span>
+      <span class="cov-badge">Inner North</span>
+      <span class="cov-badge">Inner West</span>
+      <span class="cov-badge">Inner East</span>
+      <span class="cov-badge">Inner South</span>
+      <span class="cov-badge">South East</span>
+      <span class="cov-badge">South</span>
+      <span class="cov-badge">East</span>
+      <span class="cov-badge">North East</span>
+      <span class="cov-badge">West</span>
+    </div>
+  </div>
+</section>
+
+<!-- SUBURB REGIONS -->
+<section class="areas-regions">
+  <div class="section-header">
+    <div class="section-eyebrow">Browse by Area</div>
+    <h2 class="section-title">ALL SUBURBS<br>WE COVER</h2>
+  </div>
+
+  <!-- INNER MELBOURNE -->
+  <div class="region-block" style="margin-top:60px;">
+    <div class="region-title">📍 Inner <span>Melbourne</span></div>
+    <div class="suburb-grid">
+      <a href="area-melbourne-cbd.html" class="suburb-card">
+        <div class="suburb-name">Melbourne CBD</div>
+        <div class="suburb-sub">Garage Door Services</div>
+        <span class="suburb-arrow">→</span>
+      </a>
+      <a href="#" class="suburb-card coming-soon">
+        <div class="suburb-name">Southbank</div>
+        <div class="suburb-sub">Coming Soon</div>
+      </a>
+      <a href="#" class="suburb-card coming-soon">
+        <div class="suburb-name">Docklands</div>
+        <div class="suburb-sub">Coming Soon</div>
+      </a>
+      <a href="#" class="suburb-card coming-soon">
+        <div class="suburb-name">Port Melbourne</div>
+        <div class="suburb-sub">Coming Soon</div>
+      </a>
+      <a href="#" class="suburb-card coming-soon">
+        <div class="suburb-name">South Melbourne</div>
+        <div class="suburb-sub">Coming Soon</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- INNER NORTH -->
+  <div class="region-block">
+    <div class="region-title">🧭 Inner <span>North</span></div>
+    <div class="suburb-grid">
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Fitzroy</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Carlton</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Collingwood</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Brunswick</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Northcote</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Preston</div><div class="suburb-sub">Coming Soon</div></a>
+    </div>
+  </div>
+
+  <!-- INNER WEST -->
+  <div class="region-block">
+    <div class="region-title">🧭 Inner <span>West</span></div>
+    <div class="suburb-grid">
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Footscray</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Essendon</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Moonee Ponds</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Williamstown</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Sunshine</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Werribee</div><div class="suburb-sub">Coming Soon</div></a>
+    </div>
+  </div>
+
+  <!-- INNER EAST / SOUTH EAST -->
+  <div class="region-block">
+    <div class="region-title">🧭 Inner East & <span>South East</span></div>
+    <div class="suburb-grid">
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Richmond</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">South Yarra</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Prahran</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Toorak</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Malvern</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">St Kilda</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Moorabbin</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Springvale</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Dandenong</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Frankston</div><div class="suburb-sub">Coming Soon</div></a>
+    </div>
+  </div>
+
+  <!-- EAST -->
+  <div class="region-block">
+    <div class="region-title">🧭 <span>East</span></div>
+    <div class="suburb-grid">
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Box Hill</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Doncaster</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Glen Waverley</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Ringwood</div><div class="suburb-sub">Coming Soon</div></a>
+      <a href="#" class="suburb-card coming-soon"><div class="suburb-name">Croydon</div><div class="suburb-sub">Coming Soon</div></a>
+    </div>
+  </div>
+
+</section>
+
+<!-- SERVICES IN YOUR AREA -->
+<section class="areas-services">
+  <div class="as-intro">
+    <div class="section-eyebrow">What We Offer</div>
+    <h2 class="section-title">SERVICES AVAILABLE<br><span style="color:var(--yellow);">IN EVERY SUBURB</span></h2>
+    <p>No matter which Melbourne suburb you're in, Gorilla Garage Door brings our full range of services right to your door. Same quality, same pricing, same guarantee — everywhere.</p>
+  </div>
+  <div class="as-grid">
+    <a href="garage-door-installation.html" class="as-card">
+      <span class="as-icon">🏗️</span>
+      <div class="as-title">Garage Door Installation</div>
+      <p class="as-desc">New doors installed at your home or business across all Melbourne suburbs. All types and brands.</p>
+    </a>
+    <a href="garage-door-repairs.html" class="as-card">
+      <span class="as-icon">🔧</span>
+      <div class="as-title">Garage Door Repairs</div>
+      <p class="as-desc">Same-day and emergency repairs. Broken springs, cables, openers — fixed fast wherever you are.</p>
+    </a>
+    <a href="residential-maintenance.html" class="as-card">
+      <span class="as-icon">🛡️</span>
+      <div class="as-title">Residential Maintenance</div>
+      <p class="as-desc">Annual servicing to keep your door running safely and prevent unexpected breakdowns.</p>
+    </a>
+    <a href="panel-door-repairs.html" class="as-card">
+      <span class="as-icon">🔲</span>
+      <div class="as-title">Panel Door Repairs</div>
+      <p class="as-desc">Cracked, dented or damaged panel sections repaired or replaced at your property.</p>
+    </a>
+    <a href="roller-door-repairs.html" class="as-card">
+      <span class="as-icon">🔩</span>
+      <div class="as-title">Roller Door Repairs</div>
+      <p class="as-desc">Manual and automatic roller doors serviced and repaired across residential and commercial properties.</p>
+    </a>
+    <a href="contact.html#quote" class="as-card" style="background:rgba(255,208,0,0.06);border-color:rgba(255,208,0,0.25);">
+      <span class="as-icon">🚨</span>
+      <div class="as-title" style="color:var(--yellow);">24/7 Emergency</div>
+      <p class="as-desc">Stuck door, won't close, security risk? We dispatch day and night across all Melbourne suburbs.</p>
+    </a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="areas-cta">
+  <div class="areas-cta-inner">
+    <h2>IN YOUR SUBURB.<br>READY TO HELP.</h2>
+    <p>Call us now or get a free quote — we'll come to you anywhere across Greater Melbourne.</p>
+    <div class="cta-buttons">
+      <a href="tel:0426955751" class="btn-primary">📞 Call 0426 955 751</a>
+      <a href="contact.html#quote" class="btn-outline">Get a Free Quote →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">🦍 <span>GORILLA</span> GARAGE DOOR</div>
+      <p class="footer-tagline">Built tough. Priced fair. Done right. Melbourne's trusted garage door experts.</p>
+      <a href="tel:0426955751" class="footer-contact-item">📞 0426 955 751</a>
+      <a href="mailto:gorillagaragedoor3@gmail.com" class="footer-contact-item">✉️ gorillagaragedoor3@gmail.com</a>
+      <span class="footer-contact-item">📍 Serving Greater Melbourne</span>
+    </div>
+    <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="garage-door-installation.html">Garage Door Installation</a></li><li><a href="garage-door-repairs.html">Garage Door Repairs</a></li><li><a href="residential-maintenance.html">Residential Maintenance</a></li><li><a href="panel-door-repairs.html">Panel Door Repairs</a></li><li><a href="roller-door-repairs.html">Roller Door Repairs</a></li></ul></div>
+    <div class="footer-col"><h4>Areas We Serve</h4><ul class="footer-links"><li><a href="area-melbourne-cbd.html">Melbourne CBD</a></li><li><a href="#">Richmond</a></li><li><a href="#">South Yarra</a></li><li><a href="#">Dandenong</a></li><li><a href="#">Frankston</a></li><li><a href="#">Essendon</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li><li><a href="contact.html#quote">Free Quote</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Gorilla Garage Door. All rights reserved. Licensed & Insured. Serving Greater Melbourne.</p>
+    <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
