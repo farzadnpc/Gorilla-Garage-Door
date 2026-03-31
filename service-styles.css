@@ -610,3 +610,147 @@
     .other-services-grid { grid-template-columns: 1fr; }
     .service-photos-grid { grid-template-columns: 1fr; }
   }
+ /* ============================================
+   DOOR STYLES & COLOURS
+============================================ */
+.door-options-section {
+    padding: 100px 60px;
+    background: var(--black);
+    border-bottom: 1px solid #222;
+  }
+  
+  .door-styles-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 60px;
+  }
+  
+  .style-card {
+    background: var(--charcoal);
+    border: 1px solid #222;
+    padding: 24px;
+    text-align: center;
+  }
+  
+  .style-preview {
+    height: 80px;
+    background: #f4f4f4;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    position: relative;
+  }
+  
+  /* Faux representations of the door panels */
+  .style-slimline { background: #e0e0e0; background-image: repeating-linear-gradient(to bottom, transparent, transparent 15px, #ccc 15px, #ccc 18px); }
+  .style-ultraline { background: #e0e0e0; border-top: 4px solid #ccc; border-bottom: 4px solid #ccc; }
+  .style-classic { display: flex; gap: 8px; padding: 10px; justify-content: center;}
+  .style-classic span { flex: 1; border: 2px solid #ccc; background: #eee; }
+  .style-lincoln { display: flex; gap: 8px; padding: 10px; justify-content: center;}
+  .style-lincoln span { flex: 2; border: 2px solid #ccc; background: #eee; }
+  
+  .style-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  
+  .style-card p {
+    font-size: 11px;
+    color: var(--yellow);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .colour-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+  
+  .colour-swatch {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #333;
+  }
+  
+  .colour-box {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+  
+  .colour-name {
+    background: var(--charcoal);
+    padding: 10px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--light-gray);
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .colour-note {
+    font-size: 13px;
+    color: var(--gray);
+    margin-top: -30px;
+    margin-bottom: 48px;
+    font-style: italic;
+  }
+  
+  @media (max-width: 900px) {
+    .door-styles-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  
+  @media (max-width: 768px) {
+    .door-options-section { padding: 60px 24px; }
+    .colour-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+    /* Push page content up so sticky bar doesn't cover footer */
+    body { padding-bottom: 68px; }
+  
+    /* Mobile sticky bar — phone only */
+    @media (max-width: 768px) {
+      .sticky-phone-bar {
+        padding: 0;
+        gap: 0;
+      }
+    
+      .sticky-phone-email { display: none; }
+    
+      .sticky-phone-call {
+        flex: 1;
+        justify-content: center;
+        padding: 14px 16px;
+        background: var(--charcoal);
+        border-right: 1px solid rgba(255,255,255,0.1);
+      }
+    
+      .sticky-num { font-size: 22px; }
+      .sticky-label { font-size: 9px; }
+    
+      .sticky-phone-cta {
+        flex: 1;
+        text-align: center;
+        justify-content: center;
+        padding: 14px 16px;
+        clip-path: none;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    
+      body { padding-bottom: 60px; }
+    }

@@ -114,9 +114,12 @@
   }
   
   .dropdown-wide {
-    min-width: 220px;
+    min-width: 680px; 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr); 
+    padding: 8px; 
+    left: auto; /* This stops it from anchoring to the left */
+    right: -20px; /* This anchors it to the right, forcing it to expand leftwards safely on screen */
   }
   
   .has-dropdown:hover .dropdown {
@@ -468,6 +471,7 @@
     width: 100%;
     border-radius: 0;
     -webkit-appearance: none;
+    appearance: none;
   }
   
   .form-group select {
@@ -891,4 +895,9 @@
     }
   
     body { padding-bottom: 60px; }
+  }
+  img.logo-icon {
+    height: 44px;
+    width: auto;
+    display: block;
   }
