@@ -285,6 +285,22 @@
 
   gtag('config', 'AW-18087114528');
 </script>
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18087114528/V2vTCKPMpJscEKDuzbBD',
+      'value': 1.0,
+      'currency': 'AUD',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 </head>
 <body>
 

@@ -16,6 +16,22 @@
 
   gtag('config', 'AW-18087114528');
 </script>
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18087114528/V2vTCKPMpJscEKDuzbBD',
+      'value': 1.0,
+      'currency': 'AUD',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 </head>
 <body>
 
@@ -246,7 +262,7 @@
           <label>Tell Us More</label>
           <textarea name="message" rows="4" placeholder="Describe your garage door issue or what you are looking for..."></textarea>
         </div>
-        <button type="submit" class="btn-submit" id="submitBtn">Send My Free Quote Request →</button>
+        <button type="submit" class="btn-submit" id="submitBtn" onclick="gtag_report_conversion();">Send My Free Quote Request →</button>
         <p class="form-note">* Required fields. We respect your privacy and will never share your personal details with third parties.</p>
       </form>
       <div class="form-success" id="formSuccess" style="display:none;">
