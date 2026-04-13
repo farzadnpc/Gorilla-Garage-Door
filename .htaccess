@@ -1,3 +1,9 @@
 RewriteEngine On
+
+# 1. Redirect index.html to the clean root domain
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
+RewriteRule ^index\.html$ / [R=301,L]
+
+# 2. Hide .html extensions for all other pages
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
