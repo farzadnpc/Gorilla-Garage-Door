@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site Map | Gorilla Garage Door</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .page-hero { min-height: 40vh; display: flex; align-items: flex-end; padding: 120px 60px 60px; position: relative; overflow: hidden; background: var(--black); }
+  .page-hero-grid { position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 80px 80px; }
+  .page-hero-content { position: relative; z-index: 2; }
+  .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(60px, 9vw, 120px); line-height: 0.9; }
+  .page-title span { color: var(--yellow); }
+  
+  .sitemap-container { padding: 80px 60px; max-width: 1200px; margin: 0 auto; }
+  .sitemap-section { margin-bottom: 60px; }
+  .sitemap-section > h2 { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: var(--yellow); margin-bottom: 32px; border-bottom: 1px solid #333; padding-bottom: 12px; }
+  
+  .sitemap-council-group { margin-bottom: 40px; }
+  .sitemap-council-group h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; color: var(--white); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; border-left: 4px solid var(--yellow); padding-left: 12px; }
+  
+  .sitemap-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+  .sitemap-list a { color: var(--gray); text-decoration: none; font-size: 16px; transition: color 0.2s; display: flex; align-items: center; }
+  .sitemap-list a::before { content: '>'; color: var(--yellow); font-weight: bold; margin-right: 8px; font-family: 'Bebas Neue'; }
+  .sitemap-list a:hover { color: var(--white); }
+  
+  @media (max-width: 768px) { .sitemap-container { padding: 60px 24px; } }
+</style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="/" class="nav-logo">
+      <img src="images/gorilla-logo.jpeg" alt="Gorilla Garage Door" class="logo-icon">
+      <div class="logo-text"><span>GORILLA</span> GARAGE DOOR</div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="about">About Us</a></li>
+      <li class="has-dropdown">
+        <a href="services" class="dropdown-toggle active">Services <span class="chevron">▾</span></a>
+        <ul class="dropdown">
+          <li><a href="garage-door-installation">Garage Door Installation</a></li>
+          <li><a href="garage-door-repairs">Garage Door Repairs</a></li>
+          <li><a href="residential-maintenance">Residential Maintenance</a></li>
+          <li><a href="panel-door-repairs">Garage Panel Door Repairs</a></li>
+          <li><a href="roller-door-repairs">Garage Roller Door Repairs</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="areas" class="dropdown-toggle">Area <span class="chevron">▾</span></a>
+        <ul class="dropdown dropdown-wide">
+          <li><a href="ringwood">Ringwood</a></li>
+          <li><a href="croydon">Croydon</a></li>
+          <li><a href="box-hill">Box Hill</a></li>
+          <li><a href="doncaster">Doncaster</a></li>
+          <li><a href="glen-waverley">Glen Waverley</a></li>
+          <li><a href="mount-waverley">Mount Waverley</a></li>
+          <li><a href="camberwell">Camberwell</a></li>
+          <li><a href="hawthorn">Hawthorn</a></li>
+          <li><a href="kew">Kew</a></li>
+          <li><a href="burwood">Burwood</a></li>
+          <li><a href="mulgrave">Mulgrave</a></li>
+          <li><a href="berwick">Berwick</a></li>
+          <li><a href="beaconsfield">Beaconsfield</a></li>
+          <li><a href="cranbourne">Cranbourne</a></li>
+          <li><a href="clyde">Clyde</a></li>
+          <li><a href="dandenong">Dandenong</a></li>
+          <li><a href="keysborough">Keysborough</a></li>
+          <li><a href="pakenham">Pakenham</a></li>
+          <li><a href="rowville">Rowville</a></li>
+          <li><a href="narre-warren">Narre Warren</a></li>
+          <li><a href="frankston">Frankston</a></li>
+          <li><a href="mornington">Mornington</a></li>
+          <li><a href="point-cook">Point Cook</a></li>
+          <li><a href="williams-landing">Williams Landing</a></li>
+          <li><a href="werribee">Werribee</a></li>
+          <li><a href="hoppers-crossing">Hoppers Crossing</a></li>
+          <li><a href="melton">Melton</a></li>
+          <li><a href="caroline-springs">Caroline Springs</a></li>
+          <li><a href="sunshine">Sunshine</a></li>
+          <li><a href="footscray">Footscray</a></li>
+          <li><a href="tarneit">Tarneit</a></li>
+          <li><a href="truganina">Truganina</a></li>
+          <li><a href="craigieburn">Craigieburn</a></li>
+          <li><a href="roxburgh-park">Roxburgh Park</a></li>
+          <li><a href="epping">Epping</a></li>
+          <li><a href="thomastown">Thomastown</a></li>
+          <li><a href="essendon">Essendon</a></li>
+          <li><a href="moonee-ponds">Moonee Ponds</a></li>
+          <li><a href="preston">Preston</a></li>
+          <li><a href="reservoir">Reservoir</a></li>
+          <li><a href="coburg">Coburg</a></li>
+          <li><a href="brunswick">Brunswick</a></li>
+          <li><a href="brighton">Brighton</a></li>
+          <li><a href="hampton">Hampton</a></li>
+          <li><a href="moorabbin">Moorabbin</a></li>
+          <li><a href="cheltenham">Cheltenham</a></li>
+        </ul>
+      </li>
+      <li><a href="gallery">Gallery</a></li>
+      <li><a href="contact">Contact</a></li>
+      <li><a href="#quote" class="nav-cta">Free Quote</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-content">
+    <h1 class="page-title">SITE <span>MAP</span></h1>
+  </div>
+</section>
+
+<div class="sitemap-container">
+  <div class="sitemap-section">
+    <h2>Main Pages</h2>
+    <ul class="sitemap-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="about">About Us</a></li>
+        <li><a href="services">All Services</a></li>
+        <li><a href="garage-door-installation">Garage Door Installation</a></li>
+        <li><a href="garage-door-repairs">Garage Door Repairs</a></li>
+        <li><a href="residential-maintenance">Residential Maintenance</a></li>
+        <li><a href="panel-door-repairs">Panel Door Repairs</a></li>
+        <li><a href="roller-door-repairs">Roller Door Repairs</a></li>
+        <li><a href="areas">Service Areas</a></li>
+        <li><a href="gallery">Gallery</a></li>
+        <li><a href="contact">Contact Us</a></li>
+
+    </ul>
+  </div>
+  
+  <div class="sitemap-section">
+    <h2>Service Areas by Council</h2>
+
+    <div class="sitemap-council-group">
+      <h3>City of Banyule</h3>
+      <ul class="sitemap-list">
+        <li><a href="bellfield">Bellfield</a></li>
+        <li><a href="briar-hill">Briar Hill</a></li>
+        <li><a href="greensborough">Greensborough</a></li>
+        <li><a href="heidelberg">Heidelberg</a></li>
+        <li><a href="heidelberg-heights">Heidelberg Heights</a></li>
+        <li><a href="heidelberg-west">Heidelberg West</a></li>
+        <li><a href="ivanhoe">Ivanhoe</a></li>
+        <li><a href="lower-plenty">Lower Plenty</a></li>
+        <li><a href="macleod">Macleod</a></li>
+        <li><a href="montmorency">Montmorency</a></li>
+        <li><a href="rosanna">Rosanna</a></li>
+        <li><a href="st-helena">St Helena</a></li>
+        <li><a href="viewbank">Viewbank</a></li>
+        <li><a href="watsonia">Watsonia</a></li>
+        <li><a href="watsonia-north">Watsonia North</a></li>
+        <li><a href="yallambie">Yallambie</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Bayside</h3>
+      <ul class="sitemap-list">
+        <li><a href="beaumaris">Beaumaris</a></li>
+        <li><a href="black-rock">Black Rock</a></li>
+        <li><a href="brighton-east">Brighton East</a></li>
+        <li><a href="highett">Highett</a></li>
+        <li><a href="sandringham">Sandringham</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Boroondara</h3>
+      <ul class="sitemap-list">
+        <li><a href="ashburton">Ashburton</a></li>
+        <li><a href="balwyn">Balwyn</a></li>
+        <li><a href="balwyn-north">Balwyn North</a></li>
+        <li><a href="canterbury">Canterbury</a></li>
+        <li><a href="deepdene">Deepdene</a></li>
+        <li><a href="glen-iris">Glen Iris</a></li>
+        <li><a href="hawthorn-east">Hawthorn East</a></li>
+        <li><a href="surrey-hills">Surrey Hills</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Brimbank</h3>
+      <ul class="sitemap-list">
+        <li><a href="albanvale">Albanvale</a></li>
+        <li><a href="ardeer">Ardeer</a></li>
+        <li><a href="cairnlea">Cairnlea</a></li>
+        <li><a href="calder-park">Calder Park</a></li>
+        <li><a href="deer-park">Deer Park</a></li>
+        <li><a href="delahey">Delahey</a></li>
+        <li><a href="derrimut">Derrimut</a></li>
+        <li><a href="kealba">Kealba</a></li>
+        <li><a href="keilor">Keilor</a></li>
+        <li><a href="keilor-downs">Keilor Downs</a></li>
+        <li><a href="keilor-lodge">Keilor Lodge</a></li>
+        <li><a href="keilor-north">Keilor North</a></li>
+        <li><a href="kings-park">Kings Park</a></li>
+        <li><a href="st-albans">St Albans</a></li>
+        <li><a href="sunshine-north">Sunshine North</a></li>
+        <li><a href="sunshine-west">Sunshine West</a></li>
+        <li><a href="sydenham">Sydenham</a></li>
+        <li><a href="taylors-lakes">Taylors Lakes</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Casey</h3>
+      <ul class="sitemap-list">
+        <li><a href="blind-bight">Blind Bight</a></li>
+        <li><a href="botanic-ridge">Botanic Ridge</a></li>
+        <li><a href="cannons-creek">Cannons Creek</a></li>
+        <li><a href="clyde-north">Clyde North</a></li>
+        <li><a href="cranbourne-east">Cranbourne East</a></li>
+        <li><a href="cranbourne-north">Cranbourne North</a></li>
+        <li><a href="cranbourne-south">Cranbourne South</a></li>
+        <li><a href="cranbourne-west">Cranbourne West</a></li>
+        <li><a href="devon-meadows">Devon Meadows</a></li>
+        <li><a href="doveton">Doveton</a></li>
+        <li><a href="endeavour-hills">Endeavour Hills</a></li>
+        <li><a href="eumemmerring">Eumemmerring</a></li>
+        <li><a href="hallam">Hallam</a></li>
+        <li><a href="hampton-park">Hampton Park</a></li>
+        <li><a href="harkaway">Harkaway</a></li>
+        <li><a href="junction-village">Junction Village</a></li>
+        <li><a href="lynbrook">Lynbrook</a></li>
+        <li><a href="lyndhurst">Lyndhurst</a></li>
+        <li><a href="narre-warren-north">Narre Warren North</a></li>
+        <li><a href="narre-warren-south">Narre Warren South</a></li>
+        <li><a href="pearcedale">Pearcedale</a></li>
+        <li><a href="tooradin">Tooradin</a></li>
+        <li><a href="warneet">Warneet</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Darebin</h3>
+      <ul class="sitemap-list">
+        <li><a href="alphington">Alphington</a></li>
+        <li><a href="bundoora">Bundoora</a></li>
+        <li><a href="fairfield">Fairfield</a></li>
+        <li><a href="kingsbury">Kingsbury</a></li>
+        <li><a href="northcote">Northcote</a></li>
+        <li><a href="thornbury">Thornbury</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Frankston</h3>
+      <ul class="sitemap-list">
+        <li><a href="carrum-downs">Carrum Downs</a></li>
+        <li><a href="frankston-north">Frankston North</a></li>
+        <li><a href="frankston-south">Frankston South</a></li>
+        <li><a href="karingal">Karingal</a></li>
+        <li><a href="langwarrin">Langwarrin</a></li>
+        <li><a href="langwarrin-south">Langwarrin South</a></li>
+        <li><a href="sandhurst">Sandhurst</a></li>
+        <li><a href="seaford">Seaford</a></li>
+        <li><a href="skye">Skye</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Glen Eira</h3>
+      <ul class="sitemap-list">
+        <li><a href="bentleigh">Bentleigh</a></li>
+        <li><a href="bentleigh-east">Bentleigh East</a></li>
+        <li><a href="carnegie">Carnegie</a></li>
+        <li><a href="caulfield">Caulfield</a></li>
+        <li><a href="caulfield-east">Caulfield East</a></li>
+        <li><a href="caulfield-north">Caulfield North</a></li>
+        <li><a href="caulfield-south">Caulfield South</a></li>
+        <li><a href="elsternwick">Elsternwick</a></li>
+        <li><a href="gardenvale">Gardenvale</a></li>
+        <li><a href="glen-huntly">Glen Huntly</a></li>
+        <li><a href="mckinnon">McKinnon</a></li>
+        <li><a href="murrumbeena">Murrumbeena</a></li>
+        <li><a href="ormond">Ormond</a></li>
+        <li><a href="st-kilda-east">St Kilda East</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Greater Dandenong</h3>
+      <ul class="sitemap-list">
+        <li><a href="bangholme">Bangholme</a></li>
+        <li><a href="dandenong-north">Dandenong North</a></li>
+        <li><a href="dandenong-south">Dandenong South</a></li>
+        <li><a href="noble-park">Noble Park</a></li>
+        <li><a href="noble-park-north">Noble Park North</a></li>
+        <li><a href="springvale">Springvale</a></li>
+        <li><a href="springvale-south">Springvale South</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Hobsons Bay</h3>
+      <ul class="sitemap-list">
+        <li><a href="altona">Altona</a></li>
+        <li><a href="altona-meadows">Altona Meadows</a></li>
+        <li><a href="altona-north">Altona North</a></li>
+        <li><a href="brooklyn">Brooklyn</a></li>
+        <li><a href="laverton">Laverton</a></li>
+        <li><a href="newport">Newport</a></li>
+        <li><a href="seabrook">Seabrook</a></li>
+        <li><a href="seaholme">Seaholme</a></li>
+        <li><a href="south-kingsville">South Kingsville</a></li>
+        <li><a href="spotswood">Spotswood</a></li>
+        <li><a href="williamstown">Williamstown</a></li>
+        <li><a href="williamstown-north">Williamstown North</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Hume</h3>
+      <ul class="sitemap-list">
+        <li><a href="attwood">Attwood</a></li>
+        <li><a href="broadmeadows">Broadmeadows</a></li>
+        <li><a href="bulla">Bulla</a></li>
+        <li><a href="campbellfield">Campbellfield</a></li>
+        <li><a href="coolaroo">Coolaroo</a></li>
+        <li><a href="dallas">Dallas</a></li>
+        <li><a href="gladstone-park">Gladstone Park</a></li>
+        <li><a href="greenvale">Greenvale</a></li>
+        <li><a href="kalkallo">Kalkallo</a></li>
+        <li><a href="meadow-heights">Meadow Heights</a></li>
+        <li><a href="melbourne-airport">Melbourne Airport</a></li>
+        <li><a href="mickleham">Mickleham</a></li>
+        <li><a href="somerton">Somerton</a></li>
+        <li><a href="sunbury">Sunbury</a></li>
+        <li><a href="tullamarine">Tullamarine</a></li>
+        <li><a href="westmeadows">Westmeadows</a></li>
+        <li><a href="yuroke">Yuroke</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Kingston</h3>
+      <ul class="sitemap-list">
+        <li><a href="aspendale">Aspendale</a></li>
+        <li><a href="aspendale-gardens">Aspendale Gardens</a></li>
+        <li><a href="bonbeach">Bonbeach</a></li>
+        <li><a href="braeside">Braeside</a></li>
+        <li><a href="carrum">Carrum</a></li>
+        <li><a href="chelsea">Chelsea</a></li>
+        <li><a href="chelsea-heights">Chelsea Heights</a></li>
+        <li><a href="clarinda">Clarinda</a></li>
+        <li><a href="clayton-south">Clayton South</a></li>
+        <li><a href="dingley-village">Dingley Village</a></li>
+        <li><a href="edithvale">Edithvale</a></li>
+        <li><a href="heatherton">Heatherton</a></li>
+        <li><a href="mentone">Mentone</a></li>
+        <li><a href="moorabbin-airport">Moorabbin Airport</a></li>
+        <li><a href="mordialloc">Mordialloc</a></li>
+        <li><a href="parkdale">Parkdale</a></li>
+        <li><a href="patterson-lakes">Patterson Lakes</a></li>
+        <li><a href="waterways">Waterways</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Knox</h3>
+      <ul class="sitemap-list">
+        <li><a href="bayswater">Bayswater</a></li>
+        <li><a href="boronia">Boronia</a></li>
+        <li><a href="ferntree-gully">Ferntree Gully</a></li>
+        <li><a href="knoxfield">Knoxfield</a></li>
+        <li><a href="lysterfield">Lysterfield</a></li>
+        <li><a href="scoresby">Scoresby</a></li>
+        <li><a href="the-basin">The Basin</a></li>
+        <li><a href="upper-ferntree-gully">Upper Ferntree Gully</a></li>
+        <li><a href="wantirna">Wantirna</a></li>
+        <li><a href="wantirna-south">Wantirna South</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Manningham</h3>
+      <ul class="sitemap-list">
+        <li><a href="bulleen">Bulleen</a></li>
+        <li><a href="doncaster-east">Doncaster East</a></li>
+        <li><a href="donvale">Donvale</a></li>
+        <li><a href="park-orchards">Park Orchards</a></li>
+        <li><a href="templestowe">Templestowe</a></li>
+        <li><a href="templestowe-lower">Templestowe Lower</a></li>
+        <li><a href="warrandyte">Warrandyte</a></li>
+        <li><a href="warrandyte-south">Warrandyte South</a></li>
+        <li><a href="wonga-park">Wonga Park</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Maribyrnong</h3>
+      <ul class="sitemap-list">
+        <li><a href="braybrook">Braybrook</a></li>
+        <li><a href="kingsville">Kingsville</a></li>
+        <li><a href="maidstone">Maidstone</a></li>
+        <li><a href="maribyrnong">Maribyrnong</a></li>
+        <li><a href="seddon">Seddon</a></li>
+        <li><a href="tottenham">Tottenham</a></li>
+        <li><a href="west-footscray">West Footscray</a></li>
+        <li><a href="yarraville">Yarraville</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Maroondah</h3>
+      <ul class="sitemap-list">
+        <li><a href="bayswater-north">Bayswater North</a></li>
+        <li><a href="croydon-hills">Croydon Hills</a></li>
+        <li><a href="croydon-north">Croydon North</a></li>
+        <li><a href="croydon-south">Croydon South</a></li>
+        <li><a href="heathmont">Heathmont</a></li>
+        <li><a href="kilsyth-south">Kilsyth South</a></li>
+        <li><a href="ringwood-east">Ringwood East</a></li>
+        <li><a href="ringwood-north">Ringwood North</a></li>
+        <li><a href="warranwood">Warranwood</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Melbourne</h3>
+      <ul class="sitemap-list">
+        <li><a href="carlton">Carlton</a></li>
+        <li><a href="carlton-north">Carlton North</a></li>
+        <li><a href="docklands">Docklands</a></li>
+        <li><a href="east-melbourne">East Melbourne</a></li>
+        <li><a href="flemington">Flemington</a></li>
+        <li><a href="kensington">Kensington</a></li>
+        <li><a href="melbourne">Melbourne</a></li>
+        <li><a href="north-melbourne">North Melbourne</a></li>
+        <li><a href="parkville">Parkville</a></li>
+        <li><a href="south-wharf">South Wharf</a></li>
+        <li><a href="southbank">Southbank</a></li>
+        <li><a href="west-melbourne">West Melbourne</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Melton</h3>
+      <ul class="sitemap-list">
+        <li><a href="aintree">Aintree</a></li>
+        <li><a href="bonnie-brook">Bonnie Brook</a></li>
+        <li><a href="brookfield">Brookfield</a></li>
+        <li><a href="burnside">Burnside</a></li>
+        <li><a href="burnside-heights">Burnside Heights</a></li>
+        <li><a href="cobblebank">Cobblebank</a></li>
+        <li><a href="deanside">Deanside</a></li>
+        <li><a href="diggers-rest">Diggers Rest</a></li>
+        <li><a href="eynesbury">Eynesbury</a></li>
+        <li><a href="fieldstone">Fieldstone</a></li>
+        <li><a href="fraser-rise">Fraser Rise</a></li>
+        <li><a href="grangefields">Grangefields</a></li>
+        <li><a href="harkness">Harkness</a></li>
+        <li><a href="hillside">Hillside</a></li>
+        <li><a href="kurunjang">Kurunjang</a></li>
+        <li><a href="melton-south">Melton South</a></li>
+        <li><a href="melton-west">Melton West</a></li>
+        <li><a href="plumpton">Plumpton</a></li>
+        <li><a href="rockbank">Rockbank</a></li>
+        <li><a href="strathtulloh">Strathtulloh</a></li>
+        <li><a href="taylors-hill">Taylors Hill</a></li>
+        <li><a href="thornhill-park">Thornhill Park</a></li>
+        <li><a href="toolern-vale">Toolern Vale</a></li>
+        <li><a href="weir-views">Weir Views</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Merri-bek</h3>
+      <ul class="sitemap-list">
+        <li><a href="brunswick-east">Brunswick East</a></li>
+        <li><a href="brunswick-west">Brunswick West</a></li>
+        <li><a href="coburg-north">Coburg North</a></li>
+        <li><a href="fawkner">Fawkner</a></li>
+        <li><a href="glenroy">Glenroy</a></li>
+        <li><a href="gowanbrae">Gowanbrae</a></li>
+        <li><a href="hadfield">Hadfield</a></li>
+        <li><a href="oak-park">Oak Park</a></li>
+        <li><a href="pascoe-vale">Pascoe Vale</a></li>
+        <li><a href="pascoe-vale-south">Pascoe Vale South</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Monash</h3>
+      <ul class="sitemap-list">
+        <li><a href="ashwood">Ashwood</a></li>
+        <li><a href="chadstone">Chadstone</a></li>
+        <li><a href="clayton">Clayton</a></li>
+        <li><a href="hughesdale">Hughesdale</a></li>
+        <li><a href="huntingdale">Huntingdale</a></li>
+        <li><a href="notting-hill">Notting Hill</a></li>
+        <li><a href="oakleigh">Oakleigh</a></li>
+        <li><a href="oakleigh-east">Oakleigh East</a></li>
+        <li><a href="oakleigh-south">Oakleigh South</a></li>
+        <li><a href="wheelers-hill">Wheelers Hill</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Moonee Valley</h3>
+      <ul class="sitemap-list">
+        <li><a href="aberfeldie">Aberfeldie</a></li>
+        <li><a href="airport-west">Airport West</a></li>
+        <li><a href="ascot-vale">Ascot Vale</a></li>
+        <li><a href="avondale-heights">Avondale Heights</a></li>
+        <li><a href="essendon-fields">Essendon Fields</a></li>
+        <li><a href="essendon-north">Essendon North</a></li>
+        <li><a href="essendon-west">Essendon West</a></li>
+        <li><a href="keilor-east">Keilor East</a></li>
+        <li><a href="niddrie">Niddrie</a></li>
+        <li><a href="strathmore">Strathmore</a></li>
+        <li><a href="strathmore-heights">Strathmore Heights</a></li>
+        <li><a href="travancore">Travancore</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Port Phillip</h3>
+      <ul class="sitemap-list">
+        <li><a href="albert-park">Albert Park</a></li>
+        <li><a href="balaclava">Balaclava</a></li>
+        <li><a href="elwood">Elwood</a></li>
+        <li><a href="middle-park">Middle Park</a></li>
+        <li><a href="port-melbourne">Port Melbourne</a></li>
+        <li><a href="ripponlea">Ripponlea</a></li>
+        <li><a href="south-melbourne">South Melbourne</a></li>
+        <li><a href="st-kilda">St Kilda</a></li>
+        <li><a href="st-kilda-west">St Kilda West</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Stonnington</h3>
+      <ul class="sitemap-list">
+        <li><a href="armadale">Armadale</a></li>
+        <li><a href="kooyong">Kooyong</a></li>
+        <li><a href="malvern">Malvern</a></li>
+        <li><a href="malvern-east">Malvern East</a></li>
+        <li><a href="prahran">Prahran</a></li>
+        <li><a href="south-yarra">South Yarra</a></li>
+        <li><a href="toorak">Toorak</a></li>
+        <li><a href="windsor">Windsor</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Whitehorse</h3>
+      <ul class="sitemap-list">
+        <li><a href="blackburn">Blackburn</a></li>
+        <li><a href="blackburn-north">Blackburn North</a></li>
+        <li><a href="blackburn-south">Blackburn South</a></li>
+        <li><a href="box-hill-north">Box Hill North</a></li>
+        <li><a href="box-hill-south">Box Hill South</a></li>
+        <li><a href="burwood-east">Burwood East</a></li>
+        <li><a href="forest-hill">Forest Hill</a></li>
+        <li><a href="mitcham">Mitcham</a></li>
+        <li><a href="mont-albert">Mont Albert</a></li>
+        <li><a href="mont-albert-north">Mont Albert North</a></li>
+        <li><a href="nunawading">Nunawading</a></li>
+        <li><a href="vermont">Vermont</a></li>
+        <li><a href="vermont-south">Vermont South</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Whittlesea</h3>
+      <ul class="sitemap-list">
+        <li><a href="donnybrook">Donnybrook</a></li>
+        <li><a href="doreen">Doreen</a></li>
+        <li><a href="eden-park">Eden Park</a></li>
+        <li><a href="lalor">Lalor</a></li>
+        <li><a href="mernda">Mernda</a></li>
+        <li><a href="mill-park">Mill Park</a></li>
+        <li><a href="south-morang">South Morang</a></li>
+        <li><a href="whittlesea">Whittlesea</a></li>
+        <li><a href="wollert">Wollert</a></li>
+        <li><a href="woodstock">Woodstock</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Wyndham</h3>
+      <ul class="sitemap-list">
+        <li><a href="laverton-north">Laverton North</a></li>
+        <li><a href="little-river">Little River</a></li>
+        <li><a href="mambourin">Mambourin</a></li>
+        <li><a href="manor-lakes">Manor Lakes</a></li>
+        <li><a href="mount-cottrell">Mount Cottrell</a></li>
+        <li><a href="werribee-south">Werribee South</a></li>
+        <li><a href="wyndham-vale">Wyndham Vale</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>City of Yarra</h3>
+      <ul class="sitemap-list">
+        <li><a href="abbotsford">Abbotsford</a></li>
+        <li><a href="burnley">Burnley</a></li>
+        <li><a href="clifton-hill">Clifton Hill</a></li>
+        <li><a href="collingwood">Collingwood</a></li>
+        <li><a href="cremorne">Cremorne</a></li>
+        <li><a href="fitzroy">Fitzroy</a></li>
+        <li><a href="fitzroy-north">Fitzroy North</a></li>
+        <li><a href="princes-hill">Princes Hill</a></li>
+        <li><a href="richmond">Richmond</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>Shire of Cardinia</h3>
+      <ul class="sitemap-list">
+        <li><a href="officer">Officer</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>Shire of Mornington Peninsula</h3>
+      <ul class="sitemap-list">
+        <li><a href="dromana">Dromana</a></li>
+        <li><a href="hastings">Hastings</a></li>
+        <li><a href="mount-eliza">Mount Eliza</a></li>
+        <li><a href="mount-martha">Mount Martha</a></li>
+        <li><a href="rosebud">Rosebud</a></li>
+        <li><a href="rye">Rye</a></li>
+        <li><a href="safety-beach">Safety Beach</a></li>
+        <li><a href="somerville">Somerville</a></li>
+        <li><a href="sorrento">Sorrento</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>Shire of Nillumbik</h3>
+      <ul class="sitemap-list">
+        <li><a href="diamond-creek">Diamond Creek</a></li>
+        <li><a href="eltham">Eltham</a></li>
+        <li><a href="eltham-north">Eltham North</a></li>
+        <li><a href="hurstbridge">Hurstbridge</a></li>
+        <li><a href="kangaroo-ground">Kangaroo Ground</a></li>
+        <li><a href="north-warrandyte">North Warrandyte</a></li>
+        <li><a href="panton-hill">Panton Hill</a></li>
+        <li><a href="plenty">Plenty</a></li>
+        <li><a href="research">Research</a></li>
+      </ul>
+    </div>
+
+    <div class="sitemap-council-group">
+      <h3>Shire of Yarra Ranges</h3>
+      <ul class="sitemap-list">
+        <li><a href="belgrave">Belgrave</a></li>
+        <li><a href="chirnside-park">Chirnside Park</a></li>
+        <li><a href="kilsyth">Kilsyth</a></li>
+        <li><a href="lilydale">Lilydale</a></li>
+        <li><a href="montrose">Montrose</a></li>
+        <li><a href="mooroolbark">Mooroolbark</a></li>
+        <li><a href="mount-evelyn">Mount Evelyn</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">🦍 <span>GORILLA</span> GARAGE DOOR</div>
+      <p class="footer-tagline">Built tough. Priced fair. Done right. Melbourne's trusted garage door experts.</p>
+      <a href="tel:0426955751" onclick="gtag_report_conversion('tel:0426955751'); return false;" class="footer-contact-item">📞 0426 955 751</a>
+      <a href="mailto:gorillagaragedoor3@gmail.com" class="footer-contact-item">✉️ gorillagaragedoor3@gmail.com</a>
+      <span class="footer-contact-item">📍 Serving Greater Melbourne</span>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul class="footer-links">
+        <li><a href="garage-door-installation">Garage Door Installation</a></li>
+        <li><a href="garage-door-repairs">Garage Door Repairs</a></li>
+        <li><a href="residential-maintenance">Residential Maintenance</a></li>
+        <li><a href="panel-door-repairs">Panel Door Repairs</a></li>
+        <li><a href="roller-door-repairs">Roller Door Repairs</a></li>
+        <li><a href="#quote">Emergency Service</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Major Regions</h4>
+      <ul class="footer-links">
+        <li><a href="truganina">Western Suburbs</a></li>
+        <li><a href="craigieburn">Northern Suburbs</a></li>
+        <li><a href="berwick">South Eastern Suburbs</a></li>
+        <li><a href="frankston">Bayside</a></li>
+        <li><a href="mornington">Mornington Peninsula</a></li>
+        <li><a href="areas">All Areas →</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul class="footer-links">
+        <li><a href="about">About Us</a></li>
+        <li><a href="gallery">Gallery</a></li>
+        <li><a href="contact">Contact</a></li>
+        <li><a href="#quote">Free Quote</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Gorilla Garage Door. All rights reserved. Licensed &amp; Insured. Serving Greater Melbourne.</p>
+    <div class="footer-bottom-links">
+      <a href="sitemap">Sitemap</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="script.js"></script>
+</body>
+</html>

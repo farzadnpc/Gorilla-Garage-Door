@@ -129,3 +129,42 @@ document.querySelectorAll('.service-card, .door-card, .step, .testimonial-card, 
   el.style.opacity = '0';
   observer.observe(el);
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+  const popupLinks = document.querySelectorAll('.popup-link');
+  const lightbox = document.getElementById('imageLightbox');
+  const lightboxImg = document.getElementById('lightboxImage');
+  const closeBtn = document.querySelector('.lightbox-close');
+
+  if(lightbox && lightboxImg) {
+    // Open Lightbox
+    popupLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault(); // Stops the browser from leaving the page
+        lightboxImg.src = this.getAttribute('href');
+        lightbox.classList.add('active');
+      });
+    });
+
+    // Close Lightbox on X click
+    if(closeBtn) {
+      closeBtn.addEventListener('click', function() {
+        lightbox.classList.remove('active');
+      });
+    }
+
+    // Close Lightbox when clicking outside the image
+    lightbox.addEventListener('click', function(e) {
+      if (e.target !== lightboxImg) {
+        lightbox.classList.remove('active');
+      }
+    });
+
+    // Close Lightbox on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        lightbox.classList.remove('active');
+      }
+    });
+  }
+});
