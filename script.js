@@ -168,39 +168,67 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 });
-document.addEventListener('DOMContentLoaded', function() {
-  const popupLinks = document.querySelectorAll('.popup-link');
-  const lightbox = document.getElementById('imageLightbox');
-  const lightboxImg = document.getElementById('lightboxImage');
-  const closeBtn = document.querySelector('.lightbox-close');
+// GLOBAL LIGHTBOX OVERRIDE
+document.addEventListener('click', function(event) {
+  // 1. Detect if a gallery link or suburb photo was clicked
+  const popupLink = event.target.closest('.popup-link, .gallery-item, .suburb-photo-slot');
+  
+  if (popupLink) {
+    event.preventDefault(); // ABSOLUTELY STOP THE BROWSER REDIRECT
+    event.stopPropagation(); // Stop any other conflicting scripts
 
-  if(lightbox && lightboxImg) {
-    // 1. Open Lightbox on Click
-    popupLinks.forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault(); // <-- Stops the browser redirecting to the raw image URL
-        lightboxImg.src = this.getAttribute('href'); 
-        lightbox.classList.add('active'); // Triggers the CSS to show the popup
-      });
-    });
-
-    // 2. Close on clicking the X
-    if(closeBtn) {
-      closeBtn.addEventListener('click', () => {
-        lightbox.classList.remove('active');
-      });
+    // Get the image URL
+    let imageUrl = popupLink.getAttribute('href');
+    if (!imageUrl || imageUrl === '#') {
+      const img = popupLink.querySelector('img');
+      if (img) imageUrl = img.src;
     }
 
-    // 3. Close on clicking the dark background
-    lightbox.addEventListener('click', (e) => {
-      if (e.target !== lightboxImg && e.target !== closeBtn) {
-        lightbox.classList.remove('active');
-      }
-    });
+    if (imageUrl) openDynamicLightbox(imageUrl);
+  }
+}, true); // The 'true' argument forces this script to run before anything else on the page
 
-    // 4. Close on Escape key
+function openDynamicLightbox(imageSrc) {
+  let lightbox = document.getElementById('gorilla-dynamic-lightbox');
+  
+  // 2. If the lightbox doesn't exist in the HTML, create it on the fly
+  if (!lightbox) {
+    lightbox = document.createElement('div');
+    lightbox.id = 'gorilla-dynamic-lightbox';
+    lightbox.style.cssText = 'position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.9); z-index: 9999999; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;';
+
+    const closeBtn = document.createElement('span');
+    closeBtn.innerHTML = '&times;';
+    closeBtn.style.cssText = 'position: absolute; top: 20px; right: 30px; color: #ffffff; font-size: 50px; font-weight: 300; cursor: pointer; z-index: 10000000; line-height: 1;';
+
+    const img = document.createElement('img');
+    img.id = 'gorilla-dynamic-image';
+    img.style.cssText = 'max-width: 90%; max-height: 90vh; border-radius: 8px; box-shadow: 0 5px 25px rgba(0,0,0,0.8); object-fit: contain;';
+
+    lightbox.appendChild(closeBtn);
+    lightbox.appendChild(img);
+    document.body.appendChild(lightbox);
+
+    // Close logic
+    const closeLightbox = () => {
+      lightbox.style.opacity = '0';
+      setTimeout(() => { lightbox.style.display = 'none'; }, 300);
+    };
+
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target !== img) closeLightbox();
+    });
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') lightbox.classList.remove('active');
+      if (e.key === 'Escape') closeLightbox();
     });
   }
-});
+
+  // 3. Set the image and forcefully show the popup
+  const imgEl = document.getElementById('gorilla-dynamic-image');
+  imgEl.src = imageSrc;
+  lightbox.style.display = 'flex';
+  
+  // Tiny delay to allow the fade-in animation to trigger smoothly
+  setTimeout(() => { lightbox.style.opacity = '1'; }, 10);
+}
