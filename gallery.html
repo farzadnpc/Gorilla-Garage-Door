@@ -396,7 +396,7 @@ function gtag_report_conversion(url) {
     </span>
   </a>
   <a href="mailto:gorillagaragedoor3@gmail.com" class="sticky-phone-email">✉️ gorillagaragedoor3@gmail.com</a>
-  <a href="contact.html#quote" class="sticky-phone-cta">GET FREE QUOTE →</a>
+  <a href="contact" class="sticky-phone-cta">GET FREE QUOTE →</a>
 </div>
 
 <!-- PAGE HERO -->
@@ -411,11 +411,6 @@ function gtag_report_conversion(url) {
 
 <!-- GALLERY -->
 <section class="gallery-section">
-
-  <div class="gallery-note">
-    <strong>📸 Add Your Photos:</strong> Replace the placeholder tiles below with your real job photos. Simply swap the emoji placeholders with <code>&lt;img src="your-photo.jpg"&gt;</code> tags inside each <code>.gallery-placeholder</code> div. Photos should be 4:3 ratio for best results.
-  </div>
-
   <!-- Filter Buttons -->
   <div class="gallery-filters">
     <button class="filter-btn active" data-filter="all">All Work</button>
@@ -426,83 +421,178 @@ function gtag_report_conversion(url) {
     <button class="filter-btn" data-filter="commercial">Commercial</button>
   </div>
 
-  <!-- Grid -->
-  <div class="gallery-grid" id="galleryGrid">
+ <!-- Grid -->
+ <div class="gallery-grid" id="galleryGrid">
 
-    <div class="gallery-item" data-category="installation" data-title="New Steel Door Installation" data-tag="Installation" onclick="openLightbox(this)">
-      <div class="gallery-placeholder"><span class="gallery-placeholder-icon">🏗️</span></div>
-      <div class="gallery-caption"><div class="gallery-caption-title">New Steel Door Installation</div><div class="gallery-caption-tag">Installation</div></div>
-      <div class="gallery-overlay"><div class="gallery-overlay-icon">🔍</div></div>
-    </div>
-
-    <div class="gallery-item" data-category="repair" data-title="Spring Replacement" data-tag="Repair" onclick="openLightbox(this)">
-      <div class="gallery-placeholder"><span class="gallery-placeholder-icon">🔧</span></div>
-      <div class="gallery-caption"><div class="gallery-caption-title">Spring Replacement</div><div class="gallery-caption-tag">Repair</div></div>
-      <div class="gallery-overlay"><div class="gallery-overlay-icon">🔍</div></div>
-    </div>
-
-    <div class="gallery-item" data-category="roller" data-title="Roller Door Install – Richmond" data-tag="Roller Door" onclick="openLightbox(this)">
-      <div class="gallery-placeholder"><span class="gallery-placeholder-icon">🔩</span></div>
-      <div class="gallery-caption"><div class="gallery-caption-title">Roller Door Install – Richmond</div><div class="gallery-caption-tag">Roller Door</div></div>
-      <div class="gallery-overlay"><div class="gallery-overlay-icon">🔍</div></div>
-    </div>
-
-    <div class="gallery-item" data-category="panel" data-title="Panel Door Repair – South Yarra" data-tag="Panel Door" onclick="openLightbox(this)">
-      <div class="gallery-placeholder"><span class="gallery-placeholder-icon">🔲</span></div>
-      <div class="gallery-caption"><div class="gallery-caption-title">Panel Door Repair – South Yarra</div><div class="gallery-caption-tag">Panel Door</div></div>
-      <div class="gallery-overlay"><div class="gallery-overlay-icon">🔍</div></div>
-    </div>
-
-    <div class="gallery-item" data-category="commercial" data-title="Commercial Door – Dandenong Warehouse" data-tag="Commercial" onclick="openLightbox(this)">
-      <div class="gallery-placeholder"><span class="gallery-placeholder-icon">🏢</span></div>
-      <div class="gallery-caption"><div class="gallery-caption-title">Commercial Door – Dandenong</div><div class="gallery-caption-tag">Commercial</div></div>
-      <div class="gallery-overlay"><div class="gallery-overlay-icon">🔍</div></div>
-    </div>
-
-    <div class="gallery-item" data-category="installation" data-title="Timber Look Door – Toorak" data-tag="Installation" onclick="openLightbox(this)">
-      <div class="gallery-placeholder"><span class="gallery-placeholder-icon">🪵</span></div>
-      <div class="gallery-caption"><div class="gallery-caption-title">Timber Look Door – Toorak</div><div class="gallery-caption-tag">Installation</div></div>
-      <div class="gallery-overlay"><div class="gallery-overlay-icon">🔍</div></div>
-    </div>
-
-    <div class="gallery-item" data-category="repair" data-title="Cable Replacement – Essendon" data-tag="Repair" onclick="openLightbox(this)">
-      <div class="gallery-placeholder"><span class="gallery-placeholder-icon">⚡</span></div>
-      <div class="gallery-caption"><div class="gallery-caption-title">Cable Replacement – Essendon</div><div class="gallery-caption-tag">Repair</div></div>
-      <div class="gallery-overlay"><div class="gallery-overlay-icon">🔍</div></div>
-    </div>
-
-    <div class="gallery-item" data-category="installation" data-title="Glass Panel Door – St Kilda" data-tag="Installation" onclick="openLightbox(this)">
-      <div class="gallery-placeholder"><span class="gallery-placeholder-icon">🔲</span></div>
-      <div class="gallery-caption"><div class="gallery-caption-title">Glass Panel Door – St Kilda</div><div class="gallery-caption-tag">Installation</div></div>
-      <div class="gallery-overlay"><div class="gallery-overlay-icon">🔍</div></div>
-    </div>
-
-    <div class="gallery-item" data-category="commercial" data-title="Loading Dock Door – Sunshine" data-tag="Commercial" onclick="openLightbox(this)">
-      <div class="gallery-placeholder"><span class="gallery-placeholder-icon">🏭</span></div>
-      <div class="gallery-caption"><div class="gallery-caption-title">Loading Dock Door – Sunshine</div><div class="gallery-caption-tag">Commercial</div></div>
-      <div class="gallery-overlay"><div class="gallery-overlay-icon">🔍</div></div>
-    </div>
-
-    <div class="gallery-item" data-category="roller" data-title="Roller Door Service – Brunswick" data-tag="Roller Door" onclick="openLightbox(this)">
-      <div class="gallery-placeholder"><span class="gallery-placeholder-icon">🔄</span></div>
-      <div class="gallery-caption"><div class="gallery-caption-title">Roller Door Service – Brunswick</div><div class="gallery-caption-tag">Roller Door</div></div>
-      <div class="gallery-overlay"><div class="gallery-overlay-icon">🔍</div></div>
-    </div>
-
-    <div class="gallery-item" data-category="panel" data-title="Panel Replacement – Box Hill" data-tag="Panel Door" onclick="openLightbox(this)">
-      <div class="gallery-placeholder"><span class="gallery-placeholder-icon">🛠️</span></div>
-      <div class="gallery-caption"><div class="gallery-caption-title">Panel Replacement – Box Hill</div><div class="gallery-caption-tag">Panel Door</div></div>
-      <div class="gallery-overlay"><div class="gallery-overlay-icon">🔍</div></div>
-    </div>
-
-    <div class="gallery-item" data-category="installation" data-title="Smart Opener Install – Frankston" data-tag="Installation" onclick="openLightbox(this)">
-      <div class="gallery-placeholder"><span class="gallery-placeholder-icon">📱</span></div>
-      <div class="gallery-caption"><div class="gallery-caption-title">Smart Opener – Frankston</div><div class="gallery-caption-tag">Installation</div></div>
-      <div class="gallery-overlay"><div class="gallery-overlay-icon">🔍</div></div>
-    </div>
-
+  <div class="gallery-item" data-category="commercial" data-title="Commercial Basement – Low Clearance Shutter" data-tag="Commercial" onclick="openLightbox(this)">
+    <a href="images/commercial.jpg" class="popup-link" aria-label="View larger image of commercial basement garage door in {{suburb}}">
+      <img 
+        src="images/commercial.jpg" 
+        alt="Commercial heavy-duty basement roller garage door installation in {{suburb}}" 
+        loading="lazy" 
+        decoding="async" 
+        width="600" 
+        height="400" 
+        style="width:100%; height:100%; object-fit:cover; display:block;">
+    </a>
+    <div class="gallery-caption"><div class="gallery-caption-title">Commercial Basement – Shutter</div><div class="gallery-caption-tag">Commercial</div></div>
   </div>
-</section>
+
+  <div class="gallery-item" data-category="commercial" data-title="Multi-Car Carpark – Industrial Grille" data-tag="Commercial" onclick="openLightbox(this)">
+    <a href="images/commercial2.jpg" class="popup-link" aria-label="View larger image of multi-car carpark grille in {{suburb}}">
+      <img 
+        src="images/commercial2.jpg" 
+        alt="Industrial multi-car basement carpark secure access grille in {{suburb}}" 
+        loading="lazy" 
+        decoding="async" 
+        width="600" 
+        height="400" 
+        style="width:100%; height:100%; object-fit:cover; display:block;">
+    </a>
+    <div class="gallery-caption"><div class="gallery-caption-title">Multi-Car Carpark – Grille</div><div class="gallery-caption-tag">Commercial</div></div>
+  </div>
+
+  <div class="gallery-item" data-category="installation" data-title="Custom Charcoal Sectional Door" data-tag="Installation" onclick="openLightbox(this)">
+    <a href="images/custom.jpg" class="popup-link" aria-label="View larger image of custom charcoal sectional door in {{suburb}}">
+      <img 
+        src="images/custom.jpg" 
+        alt="Sleek custom charcoal sectional garage door on a modern home in {{suburb}}" 
+        loading="lazy" 
+        decoding="async" 
+        width="600" 
+        height="400" 
+        style="width:100%; height:100%; object-fit:cover; display:block;">
+    </a>
+    <div class="gallery-caption"><div class="gallery-caption-title">Custom Charcoal Sectional</div><div class="gallery-caption-tag">Installation</div></div>
+  </div>
+
+  <div class="gallery-item" data-category="installation" data-title="Custom Modern Shutter – Black Finish" data-tag="Installation" onclick="openLightbox(this)">
+    <a href="images/custom2.jpg" class="popup-link" aria-label="View larger image of custom modern shutter in {{suburb}}">
+      <img 
+        src="images/custom2.jpg" 
+        alt="Custom black shutter garage door on a modern architectural home in {{suburb}}" 
+        loading="lazy" 
+        decoding="async" 
+        width="600" 
+        height="400" 
+        style="width:100%; height:100%; object-fit:cover; display:block;">
+    </a>
+    <div class="gallery-caption"><div class="gallery-caption-title">Custom Modern Shutter</div><div class="gallery-caption-tag">Installation</div></div>
+  </div>
+
+  <div class="gallery-item" data-category="panel" data-title="Essence Timber-Finish Townhouses" data-tag="Panel Door" onclick="openLightbox(this)">
+    <a href="images/essence-timber-finish.jpg" class="popup-link" aria-label="View larger image of essence timber-finish garage doors in {{suburb}}">
+      <img 
+        src="images/essence-timber-finish.jpg" 
+        alt="Multiple natural essence timber-finish sectional garage doors on townhouses in {{suburb}}" 
+        loading="lazy" 
+        decoding="async" 
+        width="600" 
+        height="400" 
+        style="width:100%; height:100%; object-fit:cover; display:block;">
+    </a>
+    <div class="gallery-caption"><div class="gallery-caption-title">Essence Timber-Finish</div><div class="gallery-caption-tag">Panel Door</div></div>
+  </div>
+
+  <div class="gallery-item" data-category="panel" data-title="Insulated Sectional – Contemporary Estate" data-tag="Panel Door" onclick="openLightbox(this)">
+    <a href="images/insulated-sectional.jpg" class="popup-link" aria-label="View larger image of insulated sectional garage door in {{suburb}}">
+      <img 
+        src="images/insulated-sectional.jpg" 
+        alt="Premium insulated sectional garage door on a contemporary multi-story home in {{suburb}}" 
+        loading="lazy" 
+        decoding="async" 
+        width="600" 
+        height="400" 
+        style="width:100%; height:100%; object-fit:cover; display:block;">
+    </a>
+    <div class="gallery-caption"><div class="gallery-caption-title">Insulated Sectional – Estate</div><div class="gallery-caption-tag">Panel Door</div></div>
+  </div>
+
+  <div class="gallery-item" data-category="panel" data-title="Insulated Sectional – Modern Facade" data-tag="Panel Door" onclick="openLightbox(this)">
+    <a href="images/insulated-sectional2.jpg" class="popup-link" aria-label="View larger image of insulated sectional modern facade in {{suburb}}">
+      <img 
+        src="images/insulated-sectional2.jpg" 
+        alt="Insulated dark sectional garage door matching modern facade design in {{suburb}}" 
+        loading="lazy" 
+        decoding="async" 
+        width="600" 
+        height="400" 
+        style="width:100%; height:100%; object-fit:cover; display:block;">
+    </a>
+    <div class="gallery-caption"><div class="gallery-caption-title">Insulated Sectional – Facade</div><div class="gallery-caption-tag">Panel Door</div></div>
+  </div>
+
+  <div class="gallery-item" data-category="panel" data-title="Panel Lift Safe – Luxury Residence" data-tag="Panel Door" onclick="openLightbox(this)">
+    <a href="images/panel-lift-safe.jpg" class="popup-link" aria-label="View larger image of panel lift safe luxury residence in {{suburb}}">
+      <img 
+        src="images/panel-lift-safe.jpg" 
+        alt="Premium panel lift safe garage door installation at a luxury home in {{suburb}}" 
+        loading="lazy" 
+        decoding="async" 
+        width="600" 
+        height="400" 
+        style="width:100%; height:100%; object-fit:cover; display:block;">
+    </a>
+    <div class="gallery-caption"><div class="gallery-caption-title">Panel Lift Safe – Luxury</div><div class="gallery-caption-tag">Panel Door</div></div>
+  </div>
+
+  <div class="gallery-item" data-category="panel" data-title="Panel Lift Safe – Natural Woodgrain" data-tag="Panel Door" onclick="openLightbox(this)">
+    <a href="images/panel-lift-safe2.jpg" class="popup-link" aria-label="View larger image of panel lift safe woodgrain in {{suburb}}">
+      <img 
+        src="images/panel-lift-safe2.jpg" 
+        alt="Woodgrain panel lift safe garage door on modern house in {{suburb}}" 
+        loading="lazy" 
+        decoding="async" 
+        width="600" 
+        height="400" 
+        style="width:100%; height:100%; object-fit:cover; display:block;">
+    </a>
+    <div class="gallery-caption"><div class="gallery-caption-title">Panel Lift Safe – Woodgrain</div><div class="gallery-caption-tag">Panel Door</div></div>
+  </div>
+
+  <div class="gallery-item" data-category="installation" data-title="Premium Timber Sectional" data-tag="Installation" onclick="openLightbox(this)">
+    <a href="images/premium-timber.jpg" class="popup-link" aria-label="View larger image of premium timber sectional in {{suburb}}">
+      <img 
+        src="images/premium-timber.jpg" 
+        alt="Rich natural timber sectional garage door installation in {{suburb}}" 
+        loading="lazy" 
+        decoding="async" 
+        width="600" 
+        height="400" 
+        style="width:100%; height:100%; object-fit:cover; display:block;">
+    </a>
+    <div class="gallery-caption"><div class="gallery-caption-title">Premium Timber Sectional</div><div class="gallery-caption-tag">Installation</div></div>
+  </div>
+
+  <div class="gallery-item" data-category="roller" data-title="Dual Matte Roller Door Installation" data-tag="Roller Door" onclick="openLightbox(this)">
+    <a href="images/roller-door.jpg" class="popup-link" aria-label="View larger image of dual roller doors in {{suburb}}">
+      <img 
+        src="images/roller-door.jpg" 
+        alt="Dual dark matte roller garage door installations in {{suburb}}" 
+        loading="lazy" 
+        decoding="async" 
+        width="600" 
+        height="400" 
+        style="width:100%; height:100%; object-fit:cover; display:block;">
+    </a>
+    <div class="gallery-caption"><div class="gallery-caption-title">Dual Matte Roller Doors</div><div class="gallery-caption-tag">Roller Door</div></div>
+  </div>
+
+  <div class="gallery-item" data-category="roller" data-title="Residential Roller Door – Secure Access" data-tag="Roller Door" onclick="openLightbox(this)">
+    <a href="images/roller-door2.jpg" class="popup-link" aria-label="View larger image of residential roller door in {{suburb}}">
+      <img 
+        src="images/roller-door2.jpg" 
+        alt="Classic light-grey residential roller garage door serviced in {{suburb}}" 
+        loading="lazy" 
+        decoding="async" 
+        width="600" 
+        height="400" 
+        style="width:100%; height:100%; object-fit:cover; display:block;">
+    </a>
+    <div class="gallery-caption"><div class="gallery-caption-title">Residential Roller Door</div><div class="gallery-caption-tag">Roller Door</div></div>
+  </div>
+
+</div>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
@@ -514,7 +604,7 @@ function gtag_report_conversion(url) {
         <div class="lightbox-title" id="lightboxTitle"></div>
         <div class="lightbox-tag" id="lightboxTag"></div>
       </div>
-      <a href="contact.html#quote" class="btn-primary" style="font-size:12px;padding:12px 20px;">Get a Quote →</a>
+      <a href="contact class="btn-primary" style="font-size:12px;padding:12px 20px;">Get a Quote →</a>
     </div>
   </div>
 </div>
