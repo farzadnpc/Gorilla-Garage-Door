@@ -168,3 +168,39 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 });
+document.addEventListener('DOMContentLoaded', function() {
+  const popupLinks = document.querySelectorAll('.popup-link');
+  const lightbox = document.getElementById('imageLightbox');
+  const lightboxImg = document.getElementById('lightboxImage');
+  const closeBtn = document.querySelector('.lightbox-close');
+
+  if(lightbox && lightboxImg) {
+    // 1. Open Lightbox on Click
+    popupLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault(); // <-- Stops the browser redirecting to the raw image URL
+        lightboxImg.src = this.getAttribute('href'); 
+        lightbox.classList.add('active'); // Triggers the CSS to show the popup
+      });
+    });
+
+    // 2. Close on clicking the X
+    if(closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+      });
+    }
+
+    // 3. Close on clicking the dark background
+    lightbox.addEventListener('click', (e) => {
+      if (e.target !== lightboxImg && e.target !== closeBtn) {
+        lightbox.classList.remove('active');
+      }
+    });
+
+    // 4. Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') lightbox.classList.remove('active');
+    });
+  }
+});
