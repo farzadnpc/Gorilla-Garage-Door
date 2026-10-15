@@ -341,7 +341,7 @@ function gtag_report_conversion(url) {
       <span class="ssv-link">View Maintenance Services →</span>
     </a>
 
-    <a href="contact.html#quote" class="ssv-card ssv-card-emergency">
+    <a href="contact" class="ssv-card ssv-card-emergency">
       <div class="ssv-icon">🚨</div>
       <h3>24/7 Emergency Callouts</h3>
       <p>Cars trapped in the garage before the morning school run? Door jammed open late at night? We dispatch emergency technicians across the Manningham area around the clock.</p>
@@ -360,12 +360,47 @@ function gtag_report_conversion(url) {
 
 <section class="suburb-photos">
   <div class="section-eyebrow" style="padding:0 60px 24px;">Our Work in Doncaster</div>
-  <div class="suburb-photos-grid">
-    <div class="suburb-photo-slot"><div class="sps-inner"><span>📷</span><p>ADD PHOTO</p></div></div>
-    <div class="suburb-photo-slot"><div class="sps-inner"><span>📷</span><p>ADD PHOTO</p></div></div>
-    <div class="suburb-photo-slot"><div class="sps-inner"><span>📷</span><p>ADD PHOTO</p></div></div>
-    <div class="suburb-photo-slot"><div class="sps-inner"><span>📷</span><p>ADD PHOTO</p></div></div>
-  </div>
+<div class="suburb-photos-grid">
+  <a href="images/custgarage3.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of garage door repairs in {{suburb}}">
+    <img 
+      src="images/custgarage3.webp" 
+      alt="Garage door repairs and spring replacement in {{suburb}}" 
+      loading="lazy" 
+      decoding="async" 
+      width="600" 
+      height="400">
+  </a>
+
+  <a href="images/custgarage.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of garage door installation in {{suburb}}">
+    <img 
+      src="images/custgarage.webp" 
+      alt="Colorbond sectional panel garage door installation in {{suburb}}" 
+      loading="lazy" 
+      decoding="async" 
+      width="600" 
+      height="400">
+  </a>
+
+  <a href="images/custgarage2.jpg" class="suburb-photo-slot popup-link" aria-label="View larger image of roller door motor upgrade in {{suburb}}">
+    <img 
+      src="images/custgarage2.jpg" 
+      alt="Automatic roller door motor upgrade {{suburb}} {{postcode}}" 
+      loading="lazy" 
+      decoding="async" 
+      width="600" 
+      height="400">
+  </a>
+
+  <a href="images/comgarage.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of emergency garage door service in {{suburb}}">
+    <img 
+      src="images/comgarage.webp" 
+      alt="Emergency residential garage door service in {{suburb}}" 
+      loading="lazy" 
+      decoding="async" 
+      width="600" 
+      height="400">
+  </a>
+</div>
 </section>
 
 <section class="suburb-why">
@@ -403,9 +438,16 @@ function gtag_report_conversion(url) {
       </div>
     </div>
     <div class="suburb-why-photo">
-      <div class="suburb-photo-slot" style="height:100%;min-height:420px;">
-        <div class="sps-inner"><span>📷</span><p>ADD PHOTO<br><small>Completed job or team photo works great here</small></p></div>
-      </div>
+<a href="images/garagedoor.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of completed garage door job in {{suburb}}" style="height:100%;min-height:420px;overflow:hidden;display:block;">
+  <img 
+    src="images/garagedoor.webp" 
+    alt="Gorilla Garage Door completed job or team in {{suburb}}" 
+    loading="lazy" 
+    decoding="async" 
+    width="600" 
+    height="750"
+    style="width:100%;height:100%;object-fit:cover;display:block;">
+</a>
     </div>
   </div>
 </section>
