@@ -220,12 +220,24 @@ function gtag_report_conversion(url) {
       window.location = url;
     }
   };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-18087114528/V2vTCKPMpJscEKDuzbBD',
-      'value': 1.0,
-      'currency': 'AUD',
-      'event_callback': callback
-  });
+
+  if (url) {
+    // PHONE CALL CLICK: Uses your existing phone conversion label
+    gtag('event', 'conversion', {
+        'send_to': 'AW-18087114528/V2vTCKPMpJscEKDuzbBD',
+        'value': 1.0,
+        'currency': 'AUD',
+        'event_callback': callback
+    });
+  } else {
+    // FORM SUBMISSION: Uses your new lead form conversion label
+    gtag('event', 'conversion', {
+        'send_to': 'AW-18087114528/ruq_CNGq2qAdEKDuzbBD',
+        'value': 1.0,
+        'currency': 'AUD',
+        'event_callback': callback
+    });
+  }
   return false;
 }
 </script>
