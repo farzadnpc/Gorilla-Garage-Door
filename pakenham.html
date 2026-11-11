@@ -18,11 +18,16 @@
 </script>
 <script>
 function gtag_report_conversion(url) {
+  var called = false;
   var callback = function () {
+    if (called) return;
+    called = true;
     if (typeof(url) != 'undefined') {
       window.location = url;
     }
   };
+  // Fallback: still open the phone dialer if Google's script is blocked (ad blockers) or slow
+  if (url) setTimeout(callback, 1000);
 
   if (url) {
     // PHONE CALL CLICK: 'Click to call (1)' label
@@ -290,7 +295,7 @@ function gtag_report_conversion(url) {
           <label>Tell Us More</label>
           <textarea name="message" rows="4" placeholder="Describe your garage door issue or what you are looking for..."></textarea>
         </div>
-        <button type="submit" class="btn-submit" id="submitBtn" onclick="gtag_report_conversion();">Send My Free Quote Request →</button>
+        <button type="submit" class="btn-submit" id="submitBtn">Send My Free Quote Request →</button>
         <p class="form-note">* Required fields. We respect your privacy and will never share your personal details with third parties.</p>
       </form>
       <div class="form-success" id="formSuccess" style="display:none;">
@@ -399,40 +404,40 @@ function gtag_report_conversion(url) {
 <section class="suburb-photos">
   <div class="section-eyebrow">Our Work in Pakenham</div>
  <div class="suburb-photos-grid">
-  <a href="images/custgarage3.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of garage door repairs in {{suburb}}">
+  <a href="images/custgarage3.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of garage door repairs in Pakenham">
     <img 
       src="images/custgarage3.webp" 
-      alt="Garage door repairs and spring replacement in {{suburb}}" 
+      alt="Garage door repairs and spring replacement in Pakenham" 
       loading="lazy" 
       decoding="async" 
       width="600" 
       height="400">
   </a>
 
-  <a href="images/custgarage.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of garage door installation in {{suburb}}">
+  <a href="images/custgarage.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of garage door installation in Pakenham">
     <img 
       src="images/custgarage.webp" 
-      alt="Colorbond sectional panel garage door installation in {{suburb}}" 
+      alt="Colorbond sectional panel garage door installation in Pakenham" 
       loading="lazy" 
       decoding="async" 
       width="600" 
       height="400">
   </a>
 
-  <a href="images/custgarage2.jpg" class="suburb-photo-slot popup-link" aria-label="View larger image of roller door motor upgrade in {{suburb}}">
+  <a href="images/custgarage2.jpg" class="suburb-photo-slot popup-link" aria-label="View larger image of roller door motor upgrade in Pakenham">
     <img 
       src="images/custgarage2.jpg" 
-      alt="Automatic roller door motor upgrade {{suburb}} {{postcode}}" 
+      alt="Automatic roller door motor upgrade Pakenham 3810" 
       loading="lazy" 
       decoding="async" 
       width="600" 
       height="400">
   </a>
 
-  <a href="images/comgarage.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of emergency garage door service in {{suburb}}">
+  <a href="images/comgarage.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of emergency garage door service in Pakenham">
     <img 
       src="images/comgarage.webp" 
-      alt="Emergency residential garage door service in {{suburb}}" 
+      alt="Emergency residential garage door service in Pakenham" 
       loading="lazy" 
       decoding="async" 
       width="600" 
@@ -494,10 +499,10 @@ function gtag_report_conversion(url) {
       </div>
     </div>
     <div class="suburb-why-photo">
-  <a href="images/garagedoor.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of completed residential installation in {{suburb}}" style="overflow:hidden; display:block;">
+  <a href="images/garagedoor.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of completed residential installation in Pakenham" style="overflow:hidden; display:block;">
   <img 
     src="images/garagedoor.webp" 
-    alt="Completed residential garage door installation job in {{suburb}}" 
+    alt="Completed residential garage door installation job in Pakenham" 
     loading="lazy" 
     decoding="async" 
     width="600" 

@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Residential Garage Door Maintenance Melbourne | Gorilla Garage Door</title>
+<meta name="description" content="Residential garage door servicing in Melbourne. Lubrication, spring tension and balance checks, safety inspection and hardware tightening to prevent breakdowns.">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="service-styles.css">
@@ -17,11 +18,16 @@
 </script>
 <script>
 function gtag_report_conversion(url) {
+  var called = false;
   var callback = function () {
+    if (called) return;
+    called = true;
     if (typeof(url) != 'undefined') {
       window.location = url;
     }
   };
+  // Fallback: still open the phone dialer if Google's script is blocked (ad blockers) or slow
+  if (url) setTimeout(callback, 1000);
 
   if (url) {
     // PHONE CALL CLICK: 'Click to call (1)' label
@@ -118,7 +124,7 @@ function gtag_report_conversion(url) {
     </li>
     <li><a href="gallery">Gallery</a></li>
     <li><a href="contact">Contact</a></li>
-    <li><a href="#quote" class="nav-cta">Free Quote</a></li>
+    <li><a href="contact#quote" class="nav-cta">Free Quote</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
     <span></span>
@@ -170,7 +176,7 @@ function gtag_report_conversion(url) {
     </div>
     <div class="service-intro-media">
       <!-- Clickable Lightbox Image -->
-      <a href="images/repair5.jpg" class="popup-link" aria-label="View larger image of garage door proactive servicing" style="display: block; overflow: hidden; height: 100%; min-height: 400px; border-radius: 8px;">
+      <a href="images/repair5.webp" class="popup-link" aria-label="View larger image of garage door proactive servicing" style="display: block; overflow: hidden; height: 100%; min-height: 400px; border-radius: 8px;">
         <img 
           src="images/repair5.webp" 
           alt="Gorilla Garage Door technician performing proactive maintenance" 
@@ -373,7 +379,7 @@ function gtag_report_conversion(url) {
         <li><a href="residential-maintenance">Residential Maintenance</a></li>
         <li><a href="panel-door-repairs">Panel Door Repairs</a></li>
         <li><a href="roller-door-repairs">Roller Door Repairs</a></li>
-        <li><a href="#quote">Emergency Service</a></li>
+        <li><a href="contact#quote">Emergency Service</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -382,7 +388,7 @@ function gtag_report_conversion(url) {
         <li><a href="truganina">Western Suburbs</a></li>
         <li><a href="craigieburn">Northern Suburbs</a></li>
         <li><a href="berwick">South Eastern Suburbs</a></li>
-        <li><a href="frankston">Bayside</a></li>
+        <li><a href="brighton">Bayside</a></li>
         <li><a href="mornington">Mornington Peninsula</a></li>
         <li><a href="areas">All Areas →</a></li>
       </ul>
@@ -393,7 +399,7 @@ function gtag_report_conversion(url) {
         <li><a href="about">About Us</a></li>
         <li><a href="gallery">Gallery</a></li>
         <li><a href="contact">Contact</a></li>
-        <li><a href="#quote">Free Quote</a></li>
+        <li><a href="contact#quote">Free Quote</a></li>
       </ul>
     </div>
   </div>

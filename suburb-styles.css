@@ -554,7 +554,7 @@
     .suburb-intro-inner { grid-template-columns: 1fr; }
     .suburb-intro-aside { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .suburb-services-grid { grid-template-columns: repeat(2, 1fr); }
-    .suburb-why-inner { grid-template-columns: 1fr; }
+    .suburb-why-inner { grid-template-columns: minmax(0, 1fr); }
     .suburb-why-photo { display: none; }
     .suburb-why-grid { grid-template-columns: repeat(2, 1fr); }
     .suburb-reviews-grid { grid-template-columns: repeat(2, 1fr); }
@@ -661,5 +661,6 @@
   .suburb-why-photo .suburb-photo-slot {
     min-height: 280px !important; 
     height: 280px !important;
+    aspect-ratio: auto; /* otherwise 4/3 at 280px tall forces it wider than the screen */
   }
 }

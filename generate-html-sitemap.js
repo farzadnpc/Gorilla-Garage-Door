@@ -72,6 +72,7 @@ const htmlContent = `<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Site Map | Gorilla Garage Door</title>
+<meta name="description" content="Site map for Gorilla Garage Door: every service page and Melbourne suburb we cover.">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>

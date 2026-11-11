@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Garage Door Services Melbourne | Gorilla Garage Door</title>
+<meta name="description" content="All Gorilla Garage Door services in Melbourne: installation, repairs, maintenance, panel and roller door repairs, and 24/7 emergency callouts.">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
@@ -215,11 +216,16 @@
 </script>
 <script>
 function gtag_report_conversion(url) {
+  var called = false;
   var callback = function () {
+    if (called) return;
+    called = true;
     if (typeof(url) != 'undefined') {
       window.location = url;
     }
   };
+  // Fallback: still open the phone dialer if Google's script is blocked (ad blockers) or slow
+  if (url) setTimeout(callback, 1000);
 
   if (url) {
     // PHONE CALL CLICK: 'Click to call (1)' label
@@ -422,7 +428,7 @@ function gtag_report_conversion(url) {
           <label>Tell Us More</label>
           <textarea name="message" rows="4" placeholder="Describe your garage door issue or what you are looking for..."></textarea>
         </div>
-        <button type="submit" class="btn-submit" id="submitBtn" onclick="gtag_report_conversion();">Send My Free Quote Request →</button>
+        <button type="submit" class="btn-submit" id="submitBtn">Send My Free Quote Request →</button>
         <p class="form-note">* Required fields. We respect your privacy and will never share your personal details with third parties.</p>
       </form>
       <div class="form-success" id="formSuccess" style="display:none;">
@@ -647,7 +653,7 @@ function gtag_report_conversion(url) {
         <li><a href="truganina">Western Suburbs</a></li>
         <li><a href="craigieburn">Northern Suburbs</a></li>
         <li><a href="berwick">South Eastern Suburbs</a></li>
-        <li><a href="frankston">Bayside</a></li>
+        <li><a href="brighton">Bayside</a></li>
         <li><a href="mornington">Mornington Peninsula</a></li>
         <li><a href="areas">All Areas →</a></li>
       </ul>

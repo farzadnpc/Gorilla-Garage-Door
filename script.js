@@ -88,6 +88,11 @@ if (quoteForm) {
       return;
     }
 
+    if (typeof emailjs === 'undefined') {
+      alert('Sorry, the quote form could not load. Please call us on 0426 955 751.');
+      return;
+    }
+
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
 
@@ -103,6 +108,10 @@ if (quoteForm) {
     emailjs.send('service_kna5oca', 'template_e57xsho', templateParams)
       .then(function(response) {
         console.log('Email sent!', response.status, response.text);
+        // Only count a Google Ads lead once the quote request actually went through
+        if (typeof gtag_report_conversion === 'function') {
+          gtag_report_conversion();
+        }
         quoteForm.style.display = 'none';
         formSuccess.style.display = 'block';
       })
@@ -110,7 +119,7 @@ if (quoteForm) {
         console.error('Email failed:', error);
         submitBtn.textContent = 'Send My Free Quote Request';
         submitBtn.disabled = false;
-        alert('Something went wrong: ' + JSON.stringify(error) + '\n\nPlease call us on 0426 955 751.');
+        alert('Sorry, your request could not be sent. Please try again or call us on 0426 955 751.');
       });
   });
 }

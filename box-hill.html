@@ -18,11 +18,16 @@
 </script>
 <script>
 function gtag_report_conversion(url) {
+  var called = false;
   var callback = function () {
+    if (called) return;
+    called = true;
     if (typeof(url) != 'undefined') {
       window.location = url;
     }
   };
+  // Fallback: still open the phone dialer if Google's script is blocked (ad blockers) or slow
+  if (url) setTimeout(callback, 1000);
 
   if (url) {
     // PHONE CALL CLICK: 'Click to call (1)' label
@@ -118,7 +123,7 @@ function gtag_report_conversion(url) {
     </li>
     <li><a href="gallery">Gallery</a></li>
     <li><a href="contact">Contact</a></li>
-    <li><a href="contact.html#quote" class="nav-cta">Free Quote</a></li>
+    <li><a href="#quote" class="nav-cta">Free Quote</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
@@ -134,7 +139,7 @@ function gtag_report_conversion(url) {
     </span>
   </a>
   <a href="mailto:gorillagaragedoor3@gmail.com" class="sticky-phone-email">✉️ gorillagaragedoor3@gmail.com</a>
-  <a href="contact.html#quote" class="sticky-phone-cta">GET FREE QUOTE →</a>
+  <a href="#quote" class="sticky-phone-cta">GET FREE QUOTE →</a>
 </div>
 
 <!-- HERO -->
@@ -152,7 +157,7 @@ function gtag_report_conversion(url) {
     <p class="suburb-hero-sub">Same-day service across Box Hill, Box Hill North, Box Hill South and surrounding Blackburn, Nunawading and Mont Albert. Licensed technicians, upfront pricing, 24/7 emergency.</p>
     <div class="suburb-hero-actions">
       <a href="tel:0426955751" onclick="gtag_report_conversion('tel:0426955751'); return false;" class="btn-primary">📞 Call 0426 955 751</a>
-      <a href="contact.html#quote" class="btn-outline">Get a Free Quote →</a>
+      <a href="#quote" class="btn-outline">Get a Free Quote →</a>
     </div>
     <div class="suburb-hero-stats">
       <div class="sh-stat">
@@ -201,7 +206,7 @@ function gtag_report_conversion(url) {
           <div class="scc-hour-row"><span>Saturday</span><span>8am – 4pm</span></div>
           <div class="scc-hour-row emergency-row"><span>🚨 Emergency</span><span>24/7</span></div>
         </div>
-        <a href="contact.html#quote" class="scc-quote-btn">Get a Free Quote →</a>
+        <a href="#quote" class="scc-quote-btn">Get a Free Quote →</a>
       </div>
       <div class="suburb-service-area">
         <div class="ssa-title">Also Covering Nearby</div>
@@ -221,6 +226,68 @@ function gtag_report_conversion(url) {
 </section>
 
 <!-- SERVICES -->
+<section class="quote-section" id="quote">
+  <div class="quote-inner">
+    <div class="quote-left">
+      <div class="section-eyebrow">Get Started Today</div>
+      <h2 class="section-title">GET YOUR<br>FREE QUOTE</h2>
+      <p class="quote-desc">Fill in the form and we'll get back to you within the hour during business hours. Need immediate garage door repairs in Box Hill? Call us directly.</p>
+      <a href="tel:0426955751" onclick="gtag_report_conversion('tel:0426955751'); return false;" class="quote-phone">📞 0426 955 751</a>
+      <div class="quote-promise">
+        <div class="promise-item"><span>✓</span> No obligation quotes</div>
+        <div class="promise-item"><span>✓</span> Fast response to Box Hill</div>
+        <div class="promise-item"><span>✓</span> Upfront, honest pricing</div>
+      </div>
+    </div>
+    <div class="quote-right">
+      <form class="quote-form" id="quoteForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name *</label>
+            <input type="text" name="name" placeholder="John Smith" required>
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" name="phone" placeholder="04XX XXX XXX" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="email" placeholder="john@example.com">
+        </div>
+        <div class="form-group">
+          <label>Service Required *</label>
+          <select name="service" required>
+            <option value="" disabled selected>Select a service...</option>
+            <option>Garage Door Installation</option>
+            <option>Garage Door Repairs</option>
+            <option>Residential Garage Door Maintenance</option>
+            <option>Garage Panel Door Repairs</option>
+            <option>Garage Roller Door Repairs</option>
+            <option>Emergency Service</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Your Suburb *</label>
+          <input type="text" name="suburb" value="Box Hill" required>
+        </div>
+        <div class="form-group">
+          <label>Tell Us More</label>
+          <textarea name="message" rows="4" placeholder="Describe your garage door issue or what you need..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submitBtn">Send My Free Quote Request →</button>
+        <p class="form-note">* Required fields. We respect your privacy and will never share your details.</p>
+      </form>
+      <div class="form-success" id="formSuccess" style="display:none;">
+        <div class="success-icon">✓</div>
+        <h3>Quote Request Received!</h3>
+        <p>Thanks! We'll be in touch within the hour during business hours. For urgent jobs in Box Hill call <a href="tel:0426955751" onclick="gtag_report_conversion('tel:0426955751'); return false;">0426 955 751</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="suburb-services">
   <div class="section-header">
     <div class="section-eyebrow">What We Do in Box Hill</div>
@@ -298,7 +365,7 @@ function gtag_report_conversion(url) {
       <span class="ssv-link">View Maintenance Services →</span>
     </a>
 
-    <a href="contact.html#quote" class="ssv-card ssv-card-emergency">
+    <a href="#quote" class="ssv-card ssv-card-emergency">
       <div class="ssv-icon">🚨</div>
       <h3>24/7 Emergency Callouts</h3>
       <p>Door stuck open in Box Hill at night? Spring snapped with the car trapped inside? We answer the phone around the clock and dispatch to Box Hill and the surrounding Whitehorse area fast.</p>
@@ -319,40 +386,40 @@ function gtag_report_conversion(url) {
 <section class="suburb-photos">
   <div class="section-eyebrow" style="padding:0 60px 24px;">Our Work in Box Hill</div>
 <div class="suburb-photos-grid">
-  <a href="images/custgarage3.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of garage door repairs in {{suburb}}">
+  <a href="images/custgarage3.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of garage door repairs in Box Hill">
     <img 
       src="images/custgarage3.webp" 
-      alt="Garage door repairs and spring replacement in {{suburb}}" 
+      alt="Garage door repairs and spring replacement in Box Hill" 
       loading="lazy" 
       decoding="async" 
       width="600" 
       height="400">
   </a>
 
-  <a href="images/custgarage.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of garage door installation in {{suburb}}">
+  <a href="images/custgarage.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of garage door installation in Box Hill">
     <img 
       src="images/custgarage.webp" 
-      alt="Colorbond sectional panel garage door installation in {{suburb}}" 
+      alt="Colorbond sectional panel garage door installation in Box Hill" 
       loading="lazy" 
       decoding="async" 
       width="600" 
       height="400">
   </a>
 
-  <a href="images/custgarage2.jpg" class="suburb-photo-slot popup-link" aria-label="View larger image of roller door motor upgrade in {{suburb}}">
+  <a href="images/custgarage2.jpg" class="suburb-photo-slot popup-link" aria-label="View larger image of roller door motor upgrade in Box Hill">
     <img 
       src="images/custgarage2.jpg" 
-      alt="Automatic roller door motor upgrade {{suburb}} {{postcode}}" 
+      alt="Automatic roller door motor upgrade Box Hill" 
       loading="lazy" 
       decoding="async" 
       width="600" 
       height="400">
   </a>
 
-  <a href="images/comgarage.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of emergency garage door service in {{suburb}}">
+  <a href="images/comgarage.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of emergency garage door service in Box Hill">
     <img 
       src="images/comgarage.webp" 
-      alt="Emergency residential garage door service in {{suburb}}" 
+      alt="Emergency residential garage door service in Box Hill" 
       loading="lazy" 
       decoding="async" 
       width="600" 
@@ -397,10 +464,10 @@ function gtag_report_conversion(url) {
       </div>
     </div>
     <div class="suburb-why-photo">
-<a href="images/garagedoor.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of completed garage door job in {{suburb}}" style="height:100%;min-height:420px;overflow:hidden;display:block;">
+<a href="images/garagedoor.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of completed garage door job in Box Hill" style="height:100%;min-height:420px;overflow:hidden;display:block;">
   <img 
     src="images/garagedoor.webp" 
-    alt="Gorilla Garage Door completed job or team in {{suburb}}" 
+    alt="Gorilla Garage Door completed job or team in Box Hill" 
     loading="lazy" 
     decoding="async" 
     width="600" 
@@ -494,7 +561,7 @@ function gtag_report_conversion(url) {
     <p>Call us now for same-day service, or fill in the quick form for a free quote. We cover all of Box Hill and the Whitehorse area.</p>
     <div class="cta-buttons">
       <a href="tel:0426955751" onclick="gtag_report_conversion('tel:0426955751'); return false;" class="btn-primary">📞 Call 0426 955 751</a>
-      <a href="contact.html#quote" class="btn-outline">Get a Free Quote →</a>
+      <a href="#quote" class="btn-outline">Get a Free Quote →</a>
     </div>
   </div>
 </section>
@@ -553,7 +620,7 @@ function gtag_report_conversion(url) {
         <li><a href="about">About Us</a></li>
         <li><a href="gallery">Gallery</a></li>
         <li><a href="contact">Contact</a></li>
-        <li><a href="contact.html#quote">Free Quote</a></li>
+        <li><a href="#quote">Free Quote</a></li>
       </ul>
     </div>
   </div>
@@ -563,6 +630,7 @@ function gtag_report_conversion(url) {
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="script.js"></script>
 <script>
   document.querySelectorAll('.faq-q').forEach(function(btn) {
