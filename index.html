@@ -17,11 +17,16 @@
 </script>
 <script>
 function gtag_report_conversion(url) {
+  var called = false;
   var callback = function () {
+    if (called) return;
+    called = true;
     if (typeof(url) != 'undefined') {
       window.location = url;
     }
   };
+  // Fallback: still open the phone dialer if Google's script is blocked (ad blockers) or slow
+  if (url) setTimeout(callback, 1000);
 
   if (url) {
     // PHONE CALL CLICK: 'Click to call (1)' label
@@ -252,7 +257,7 @@ function gtag_report_conversion(url) {
           <label>Tell Us More</label>
           <textarea name="message" rows="4" placeholder="Describe your garage door issue or what you need..."></textarea>
         </div>
-        <button type="submit" class="btn-submit" id="submitBtn" onclick="gtag_report_conversion();">Send My Free Quote Request →</button>
+        <button type="submit" class="btn-submit" id="submitBtn">Send My Free Quote Request →</button>
         <p class="form-note">* Required fields. We respect your privacy and will never share your details.</p>
       </form>
       <div class="form-success" id="formSuccess" style="display:none;">

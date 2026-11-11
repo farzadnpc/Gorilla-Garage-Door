@@ -287,11 +287,16 @@
 </script>
 <script>
 function gtag_report_conversion(url) {
+  var called = false;
   var callback = function () {
+    if (called) return;
+    called = true;
     if (typeof(url) != 'undefined') {
       window.location = url;
     }
   };
+  // Fallback: still open the phone dialer if Google's script is blocked (ad blockers) or slow
+  if (url) setTimeout(callback, 1000);
 
   if (url) {
     // PHONE CALL CLICK: 'Click to call (1)' label
@@ -437,10 +442,10 @@ function gtag_report_conversion(url) {
  <div class="gallery-grid" id="galleryGrid">
 
   <div class="gallery-item" data-category="commercial" data-title="Commercial Basement – Low Clearance Shutter" data-tag="Commercial" onclick="openLightbox(this)">
-    <a href="images/commercial.jpg" class="popup-link" aria-label="View larger image of commercial basement garage door in {{suburb}}">
+    <a href="images/commercial.jpg" class="popup-link" aria-label="View larger image of commercial basement garage door in Melbourne">
       <img 
         src="images/commercial.jpg" 
-        alt="Commercial heavy-duty basement roller garage door installation in {{suburb}}" 
+        alt="Commercial heavy-duty basement roller garage door installation in Melbourne" 
         loading="lazy" 
         decoding="async" 
         width="600" 
@@ -451,10 +456,10 @@ function gtag_report_conversion(url) {
   </div>
 
   <div class="gallery-item" data-category="commercial" data-title="Multi-Car Carpark – Industrial Grille" data-tag="Commercial" onclick="openLightbox(this)">
-    <a href="images/commercial2.jpg" class="popup-link" aria-label="View larger image of multi-car carpark grille in {{suburb}}">
+    <a href="images/commercial2.jpg" class="popup-link" aria-label="View larger image of multi-car carpark grille in Melbourne">
       <img 
         src="images/commercial2.jpg" 
-        alt="Industrial multi-car basement carpark secure access grille in {{suburb}}" 
+        alt="Industrial multi-car basement carpark secure access grille in Melbourne" 
         loading="lazy" 
         decoding="async" 
         width="600" 
@@ -465,10 +470,10 @@ function gtag_report_conversion(url) {
   </div>
 
   <div class="gallery-item" data-category="installation" data-title="Custom Charcoal Sectional Door" data-tag="Installation" onclick="openLightbox(this)">
-    <a href="images/custom.jpg" class="popup-link" aria-label="View larger image of custom charcoal sectional door in {{suburb}}">
+    <a href="images/custom.jpg" class="popup-link" aria-label="View larger image of custom charcoal sectional door in Melbourne">
       <img 
         src="images/custom.jpg" 
-        alt="Sleek custom charcoal sectional garage door on a modern home in {{suburb}}" 
+        alt="Sleek custom charcoal sectional garage door on a modern home in Melbourne" 
         loading="lazy" 
         decoding="async" 
         width="600" 
@@ -479,10 +484,10 @@ function gtag_report_conversion(url) {
   </div>
 
   <div class="gallery-item" data-category="installation" data-title="Custom Modern Shutter – Black Finish" data-tag="Installation" onclick="openLightbox(this)">
-    <a href="images/custom2.jpg" class="popup-link" aria-label="View larger image of custom modern shutter in {{suburb}}">
+    <a href="images/custom2.jpg" class="popup-link" aria-label="View larger image of custom modern shutter in Melbourne">
       <img 
         src="images/custom2.jpg" 
-        alt="Custom black shutter garage door on a modern architectural home in {{suburb}}" 
+        alt="Custom black shutter garage door on a modern architectural home in Melbourne" 
         loading="lazy" 
         decoding="async" 
         width="600" 
@@ -493,10 +498,10 @@ function gtag_report_conversion(url) {
   </div>
 
   <div class="gallery-item" data-category="panel" data-title="Essence Timber-Finish Townhouses" data-tag="Panel Door" onclick="openLightbox(this)">
-    <a href="images/essence-timber-finish.jpg" class="popup-link" aria-label="View larger image of essence timber-finish garage doors in {{suburb}}">
+    <a href="images/essence-timber-finish.jpg" class="popup-link" aria-label="View larger image of essence timber-finish garage doors in Melbourne">
       <img 
         src="images/essence-timber-finish.jpg" 
-        alt="Multiple natural essence timber-finish sectional garage doors on townhouses in {{suburb}}" 
+        alt="Multiple natural essence timber-finish sectional garage doors on townhouses in Melbourne" 
         loading="lazy" 
         decoding="async" 
         width="600" 
@@ -507,10 +512,10 @@ function gtag_report_conversion(url) {
   </div>
 
   <div class="gallery-item" data-category="panel" data-title="Insulated Sectional – Contemporary Estate" data-tag="Panel Door" onclick="openLightbox(this)">
-    <a href="images/insulated-sectional.jpg" class="popup-link" aria-label="View larger image of insulated sectional garage door in {{suburb}}">
+    <a href="images/insulated-sectional.jpg" class="popup-link" aria-label="View larger image of insulated sectional garage door in Melbourne">
       <img 
         src="images/insulated-sectional.jpg" 
-        alt="Premium insulated sectional garage door on a contemporary multi-story home in {{suburb}}" 
+        alt="Premium insulated sectional garage door on a contemporary multi-story home in Melbourne" 
         loading="lazy" 
         decoding="async" 
         width="600" 
@@ -521,10 +526,10 @@ function gtag_report_conversion(url) {
   </div>
 
   <div class="gallery-item" data-category="panel" data-title="Insulated Sectional – Modern Facade" data-tag="Panel Door" onclick="openLightbox(this)">
-    <a href="images/insulated-sectional2.jpg" class="popup-link" aria-label="View larger image of insulated sectional modern facade in {{suburb}}">
+    <a href="images/insulated-sectional2.jpg" class="popup-link" aria-label="View larger image of insulated sectional modern facade in Melbourne">
       <img 
         src="images/insulated-sectional2.jpg" 
-        alt="Insulated dark sectional garage door matching modern facade design in {{suburb}}" 
+        alt="Insulated dark sectional garage door matching modern facade design in Melbourne" 
         loading="lazy" 
         decoding="async" 
         width="600" 
@@ -535,10 +540,10 @@ function gtag_report_conversion(url) {
   </div>
 
   <div class="gallery-item" data-category="panel" data-title="Panel Lift Safe – Luxury Residence" data-tag="Panel Door" onclick="openLightbox(this)">
-    <a href="images/panel-lift-safe.jpg" class="popup-link" aria-label="View larger image of panel lift safe luxury residence in {{suburb}}">
+    <a href="images/panel-lift-safe.jpg" class="popup-link" aria-label="View larger image of panel lift safe luxury residence in Melbourne">
       <img 
         src="images/panel-lift-safe.jpg" 
-        alt="Premium panel lift safe garage door installation at a luxury home in {{suburb}}" 
+        alt="Premium panel lift safe garage door installation at a luxury home in Melbourne" 
         loading="lazy" 
         decoding="async" 
         width="600" 
@@ -549,10 +554,10 @@ function gtag_report_conversion(url) {
   </div>
 
   <div class="gallery-item" data-category="panel" data-title="Panel Lift Safe – Natural Woodgrain" data-tag="Panel Door" onclick="openLightbox(this)">
-    <a href="images/panel-lift-safe2.jpg" class="popup-link" aria-label="View larger image of panel lift safe woodgrain in {{suburb}}">
+    <a href="images/panel-lift-safe2.jpg" class="popup-link" aria-label="View larger image of panel lift safe woodgrain in Melbourne">
       <img 
         src="images/panel-lift-safe2.jpg" 
-        alt="Woodgrain panel lift safe garage door on modern house in {{suburb}}" 
+        alt="Woodgrain panel lift safe garage door on modern house in Melbourne" 
         loading="lazy" 
         decoding="async" 
         width="600" 
@@ -563,10 +568,10 @@ function gtag_report_conversion(url) {
   </div>
 
   <div class="gallery-item" data-category="installation" data-title="Premium Timber Sectional" data-tag="Installation" onclick="openLightbox(this)">
-    <a href="images/premium-timber.jpg" class="popup-link" aria-label="View larger image of premium timber sectional in {{suburb}}">
+    <a href="images/premium-timber.jpg" class="popup-link" aria-label="View larger image of premium timber sectional in Melbourne">
       <img 
         src="images/premium-timber.jpg" 
-        alt="Rich natural timber sectional garage door installation in {{suburb}}" 
+        alt="Rich natural timber sectional garage door installation in Melbourne" 
         loading="lazy" 
         decoding="async" 
         width="600" 
@@ -577,10 +582,10 @@ function gtag_report_conversion(url) {
   </div>
 
   <div class="gallery-item" data-category="roller" data-title="Dual Matte Roller Door Installation" data-tag="Roller Door" onclick="openLightbox(this)">
-    <a href="images/roller-door.jpg" class="popup-link" aria-label="View larger image of dual roller doors in {{suburb}}">
+    <a href="images/roller-door.jpg" class="popup-link" aria-label="View larger image of dual roller doors in Melbourne">
       <img 
         src="images/roller-door.jpg" 
-        alt="Dual dark matte roller garage door installations in {{suburb}}" 
+        alt="Dual dark matte roller garage door installations in Melbourne" 
         loading="lazy" 
         decoding="async" 
         width="600" 
@@ -591,10 +596,10 @@ function gtag_report_conversion(url) {
   </div>
 
   <div class="gallery-item" data-category="roller" data-title="Residential Roller Door – Secure Access" data-tag="Roller Door" onclick="openLightbox(this)">
-    <a href="images/roller-door2.jpg" class="popup-link" aria-label="View larger image of residential roller door in {{suburb}}">
+    <a href="images/roller-door2.jpg" class="popup-link" aria-label="View larger image of residential roller door in Melbourne">
       <img 
         src="images/roller-door2.jpg" 
-        alt="Classic light-grey residential roller garage door serviced in {{suburb}}" 
+        alt="Classic light-grey residential roller garage door serviced in Melbourne" 
         loading="lazy" 
         decoding="async" 
         width="600" 
@@ -616,7 +621,7 @@ function gtag_report_conversion(url) {
         <div class="lightbox-title" id="lightboxTitle"></div>
         <div class="lightbox-tag" id="lightboxTag"></div>
       </div>
-      <a href="contact class="btn-primary" style="font-size:12px;padding:12px 20px;">Get a Quote →</a>
+      <a href="contact" class="btn-primary" style="font-size:12px;padding:12px 20px;">Get a Quote →</a>
     </div>
   </div>
 </div>

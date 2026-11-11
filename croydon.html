@@ -18,11 +18,16 @@
 </script>
 <script>
 function gtag_report_conversion(url) {
+  var called = false;
   var callback = function () {
+    if (called) return;
+    called = true;
     if (typeof(url) != 'undefined') {
       window.location = url;
     }
   };
+  // Fallback: still open the phone dialer if Google's script is blocked (ad blockers) or slow
+  if (url) setTimeout(callback, 1000);
 
   if (url) {
     // PHONE CALL CLICK: 'Click to call (1)' label
@@ -319,40 +324,40 @@ function gtag_report_conversion(url) {
 <section class="suburb-photos">
   <div class="section-eyebrow" style="padding:0 60px 24px;">Our Work in Croydon</div>
 <div class="suburb-photos-grid">
-  <a href="images/custgarage3.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of garage door repairs in {{suburb}}">
+  <a href="images/custgarage3.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of garage door repairs in Croydon">
     <img 
       src="images/custgarage3.webp" 
-      alt="Garage door repairs and spring replacement in {{suburb}}" 
+      alt="Garage door repairs and spring replacement in Croydon" 
       loading="lazy" 
       decoding="async" 
       width="600" 
       height="400">
   </a>
 
-  <a href="images/custgarage.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of garage door installation in {{suburb}}">
+  <a href="images/custgarage.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of garage door installation in Croydon">
     <img 
       src="images/custgarage.webp" 
-      alt="Colorbond sectional panel garage door installation in {{suburb}}" 
+      alt="Colorbond sectional panel garage door installation in Croydon" 
       loading="lazy" 
       decoding="async" 
       width="600" 
       height="400">
   </a>
 
-  <a href="images/custgarage2.jpg" class="suburb-photo-slot popup-link" aria-label="View larger image of roller door motor upgrade in {{suburb}}">
+  <a href="images/custgarage2.jpg" class="suburb-photo-slot popup-link" aria-label="View larger image of roller door motor upgrade in Croydon">
     <img 
       src="images/custgarage2.jpg" 
-      alt="Automatic roller door motor upgrade {{suburb}} {{postcode}}" 
+      alt="Automatic roller door motor upgrade Croydon" 
       loading="lazy" 
       decoding="async" 
       width="600" 
       height="400">
   </a>
 
-  <a href="images/comgarage.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of emergency garage door service in {{suburb}}">
+  <a href="images/comgarage.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of emergency garage door service in Croydon">
     <img 
       src="images/comgarage.webp" 
-      alt="Emergency residential garage door service in {{suburb}}" 
+      alt="Emergency residential garage door service in Croydon" 
       loading="lazy" 
       decoding="async" 
       width="600" 
@@ -397,10 +402,10 @@ function gtag_report_conversion(url) {
       </div>
     </div>
     <div class="suburb-why-photo">
-<a href="images/garagedoor.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of completed garage door job in {{suburb}}" style="height:100%;min-height:420px;overflow:hidden;display:block;">
+<a href="images/garagedoor.webp" class="suburb-photo-slot popup-link" aria-label="View larger image of completed garage door job in Croydon" style="height:100%;min-height:420px;overflow:hidden;display:block;">
   <img 
     src="images/garagedoor.webp" 
-    alt="Gorilla Garage Door completed job or team in {{suburb}}" 
+    alt="Gorilla Garage Door completed job or team in Croydon" 
     loading="lazy" 
     decoding="async" 
     width="600" 

@@ -17,11 +17,16 @@
 </script>
 <script>
 function gtag_report_conversion(url) {
+  var called = false;
   var callback = function () {
+    if (called) return;
+    called = true;
     if (typeof(url) != 'undefined') {
       window.location = url;
     }
   };
+  // Fallback: still open the phone dialer if Google's script is blocked (ad blockers) or slow
+  if (url) setTimeout(callback, 1000);
 
   if (url) {
     // PHONE CALL CLICK: 'Click to call (1)' label

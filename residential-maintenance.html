@@ -17,11 +17,16 @@
 </script>
 <script>
 function gtag_report_conversion(url) {
+  var called = false;
   var callback = function () {
+    if (called) return;
+    called = true;
     if (typeof(url) != 'undefined') {
       window.location = url;
     }
   };
+  // Fallback: still open the phone dialer if Google's script is blocked (ad blockers) or slow
+  if (url) setTimeout(callback, 1000);
 
   if (url) {
     // PHONE CALL CLICK: 'Click to call (1)' label
@@ -170,7 +175,7 @@ function gtag_report_conversion(url) {
     </div>
     <div class="service-intro-media">
       <!-- Clickable Lightbox Image -->
-      <a href="images/repair5.jpg" class="popup-link" aria-label="View larger image of garage door proactive servicing" style="display: block; overflow: hidden; height: 100%; min-height: 400px; border-radius: 8px;">
+      <a href="images/repair5.webp" class="popup-link" aria-label="View larger image of garage door proactive servicing" style="display: block; overflow: hidden; height: 100%; min-height: 400px; border-radius: 8px;">
         <img 
           src="images/repair5.webp" 
           alt="Gorilla Garage Door technician performing proactive maintenance" 
