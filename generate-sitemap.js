@@ -47,6 +47,20 @@ suburbs.forEach((data) => {
   }
 });
 
+// Add hand-built suburb pages that aren't in suburb-list.json (e.g. ringwood.html, berwick.html)
+const listed = new Set(staticPages.map(p => p.replace(/^\//, '')));
+suburbs.forEach(data => listed.add(data.url_slug));
+const excluded = new Set(['index', '404', 'template', 'sitemap']);
+fs.readdirSync(__dirname)
+  .filter(file => file.endsWith('.html'))
+  .map(file => file.replace(/\.html$/, ''))
+  .filter(slug => !listed.has(slug) && !excluded.has(slug))
+  .sort()
+  .forEach(slug => {
+    sitemapXml += `  <url>\n    <loc>${baseUrl}/${slug}</loc>\n  </url>\n`;
+    suburbCount++;
+  });
+
 sitemapXml += `</urlset>`;
 
 // Save the file
